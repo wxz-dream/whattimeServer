@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	version="2.0">
+	<persistence-unit name="wtserver" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>com.setsail.entity.user.FriendReq</class>
+		<class>com.setsail.entity.user.Level</class>
+		<class>com.setsail.entity.user.Relation</class>
+		<class>com.setsail.entity.user.User</class>
+		<class>com.setsail.entity.business.AlarmCategory</class>
+		<class>com.setsail.entity.business.JoinRelation</class>
+		<class>com.setsail.entity.business.UserLocalAlarm</class>
+		<class>com.setsail.entity.business.UserLocalTask</class>
+		<class>com.setsail.entity.business.UserLocalTaskImg</class>
+		<class>com.setsail.entity.business.UserShareAlarm</class>
+		<class>com.setsail.entity.business.UserShareTask</class>
+		<class>com.setsail.entity.business.UserShareTaskImg</class>
+		
+		<properties>
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/wt" />
+			<property name="hibernate.connection.username" value="root" />
+			<property name="hibernate.connection.password" value="snow" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.use_sql_comments" value="false" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+</persistence> 
