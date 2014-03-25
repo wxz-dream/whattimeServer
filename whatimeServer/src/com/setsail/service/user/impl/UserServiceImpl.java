@@ -81,13 +81,17 @@ public class UserServiceImpl implements UserService {
 		
 		SystemState us = new SystemState(StateEnum.STATE_FAIL);
 		if(user != null){
-		
-			user.setLoginTime(new Date().getTime());
-			user = userRepository.save(user);
 			
-			if(user != null){
-				us.setState(StateEnum.STATE_SUCCESS);
-				us.setResInfo(new User(user.getUuid()));
+			if(user.getUserName() != null 
+					&& userRepository.findByUserName(user.getUserName()) == null){
+		
+				user.setLoginTime(new Date().getTime());
+				user = userRepository.save(user);
+			
+				if(user != null){
+					us.setState(StateEnum.STATE_SUCCESS);
+					us.setResInfo(new User(user.getUuid()));
+				}
 			}
 		}
 
