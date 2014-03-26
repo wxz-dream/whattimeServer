@@ -88,10 +88,8 @@ public class UserServiceImpl implements UserService {
 				user.setLoginTime(new Date().getTime());
 				user = userRepository.save(user);
 			
-				if(user != null){
-					us.setState(StateEnum.STATE_SUCCESS);
-					us.setResInfo(new User(user.getUuid()));
-				}
+				us.setState(StateEnum.STATE_SUCCESS);
+				us.setResInfo(new User(user.getUuid()));
 			}
 		}
 

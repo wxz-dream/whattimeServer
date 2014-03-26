@@ -15,15 +15,15 @@
 		<class>com.setsail.entity.business.UserShareAlarm</class>
 		<class>com.setsail.entity.business.UserShareTask</class>
 		<class>com.setsail.entity.business.UserShareTaskImg</class>
-
-		<properties>
+		
+	<properties>
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/wt" />
-			<property name="hibernate.connection.username" value="root" />
-			<property name="hibernate.connection.password" value="root" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://sqld.duapp.com:4050/nVnzOvGuotZiqXIDcbJy" />
+			<property name="hibernate.connection.username" value="W3ORf32x3RjCEDSgE0XAYin0" />
+			<property name="hibernate.connection.password" value="0rM4BVjVdPsRt9QHed4lBe3cLgcgf5sU" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
-			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="false" />
 			<property name="hibernate.use_sql_comments" value="false" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.connection.provider_class"
@@ -43,7 +43,7 @@
 			<property name="c3p0.breakAfterAcquireFailure" value="true"/>
 			<!--定义所有连接测试都执行的测试语句。在使用连接测试的情况下这个一显著提高测试速度。注意： 测试的表必须在初始数据源的时候就存在。Default: 
 				null -->
-			<property name="c3p0.preferredTestQuery" value="select id from test where id=1"/>
+			<!-- <property name="c3p0.preferredTestQuery" value="select id from test where id=1"/> -->
 			<!--因性能消耗大请只在需要的时候使用它。如果设为true那么在每个connection提交的 时候都将校验其有效性。建议使用idleConnectionTestPeriod或automaticTestTable 
 				等方法来提升连接测试的性能。Default: false -->
 			<property name="c3p0.testConnectionOnCheckout" value="false"/>
