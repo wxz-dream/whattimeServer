@@ -21,7 +21,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -47,13 +46,15 @@ import com.setsail.web.android.annotation.Auth;
  * @author: zhangyajie
  * @version 0.1
  */
-@WebFilter(urlPatterns = "/android/user/*")
+@WebFilter(urlPatterns = "/*")
 public class UserFilter implements Filter{
 	
-	private Logger logger = Logger.getLogger(getClass());
+	//private Logger logger = Logger.getLogger(getClass());
 	private String[] noLoginAuthURL = {};
+	private String[] controllerPackage = new String[]{"com.setsail.web.android.controller.user.UserController",
+							"com.setsail.web.android.controller.business.UserShareAlrmController"};
 	private String MIME = "MIME";
-	private String UUID = "UUID";
+	private String UUID = "userUuid";
 
 	@Override
 	public void destroy() {
@@ -116,14 +117,17 @@ public class UserFilter implements Filter{
 
 	@Override
 	public void init(FilterConfig fc) throws ServletException {
-		noLoginAuthURL = getNoLoginURL(new String[]{"com.setsail.web.android.controller.user.UserController"});
+		noLoginAuthURL = getNoLoginURL(controllerPackage);
 		System.out.println("登陆拦截的链接初始化完毕" + Arrays.toString(noLoginAuthURL));
-		logger.info("登陆拦截的链接初始化完毕:" + Arrays.toString(noLoginAuthURL));
+		controllerPackage = null;
+		//logger.info("登陆拦截的链接初始化完毕:" + Arrays.toString(noLoginAuthURL));
 	}
 	
 	private String[] getNoLoginURL(String[] classNames){
 		if(classNames != null){
+			
 			ArrayList<String> urList = new ArrayList<String>();
+			
 			for(String className : classNames){
 				@SuppressWarnings("rawtypes")
 				Class controller = null;
@@ -132,10 +136,10 @@ public class UserFilter implements Filter{
 					controller = Class.forName(className);
 				} catch (SecurityException e) {
 					e.printStackTrace();
-					logger.error(e);
+					//logger.error(e);
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
-					logger.error(e);
+					//logger.error(e);
 				}
 				if(controller != null){
 				
