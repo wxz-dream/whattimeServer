@@ -1,61 +1,71 @@
 package com.setsail.entity.business;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the user_local_alarm database table.
  * 
  */
 @Entity
-@Table(name="user_local_alarm")
-@NamedQuery(name="UserLocalAlarm.findAll", query="SELECT u FROM UserLocalAlarm u")
+@Table(name = "user_local_alarm")
+@NamedQuery(name = "UserLocalAlarm.findAll", query = "SELECT u FROM UserLocalAlarm u")
 public class UserLocalAlarm implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false, length=100)
+	@Column(unique = true, nullable = false, length = 100)
 	private String uuid;
 
-	@Column(name="ALARM_TIME")
+	@Column(name = "ALARM_TIME")
 	private Long alarmTime;
 
-	
-	@Column(name="CREATE_TIME")
+	@Column(name = "CREATE_TIME")
 	private Long createTime;
 
-	@Column(length=500)
+	@Column(length = 500)
 	private String des;
 
 	private int froms;
 
-	@Column(name="DEL")
+	@Column(name = "DEL")
 	private boolean del;
 
-	@Column(name="OPEN")
+	@Column(name = "OPEN")
 	private boolean open;
 
-	@Column(length=50)
+	@Column(length = 50)
 	private String share;
 
-	
-	@Column(name="SYNC_TIME")
+	@Column(name = "SYNC_TIME")
 	private Long syncTime;
 
-	@Column(name="TASK_UUID", length=100)
+	@Column(name = "TASK_UUID", length = 100)
 	private String taskUuid;
 
-	@Column(length=100)
+	@Column(length = 100)
 	private String title;
 
 	private int type;
 
-	
-	@Column(name="UPT_TIME")
+	@Column(name = "UPT_TIME")
 	private Long uptTime;
 
-	@Column(name="USER_UUID", length=100)
+	@Column(name = "USER_UUID", length = 100)
 	private String userUuid;
+
+	@OneToMany(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "ALARM_UUID")
+	private List<UserLocalTask> tasks;
 
 	public UserLocalAlarm() {
 	}
@@ -170,6 +180,14 @@ public class UserLocalAlarm implements Serializable {
 
 	public void setOpen(boolean open) {
 		this.open = open;
+	}
+
+	public List<UserLocalTask> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<UserLocalTask> tasks) {
+		this.tasks = tasks;
 	}
 
 }

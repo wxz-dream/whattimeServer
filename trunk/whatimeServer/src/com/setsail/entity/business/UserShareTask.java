@@ -125,14 +125,6 @@ public class UserShareTask implements Serializable {
 		this.alarmTime = alarmTime;
 	}
 
-	// public String getAlarmUuid() {
-	// return this.alarmUuid;
-	// }
-	//
-	// public void setAlarmUuid(String alarmUuid) {
-	// this.alarmUuid = alarmUuid;
-	// }
-
 	public UserShareAlarm getUserShareAlarm() {
 		return userShareAlarm;
 	}

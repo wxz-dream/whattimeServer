@@ -15,7 +15,7 @@ public interface UserShareAlarmRepository extends PagingAndSortingRepository<Use
 	 * @return
 	 */
 	@Query(" select ua from UserShareAlarm ua where ua.uptTime = (select max(u.uptTime)  from UserShareAlarm u where u.userUuid = ?1 ) and ua.userUuid = ?1  ")
-	UserShareAlarm findAlrmShareLastByUserUuid(String userUuid);
+	UserShareAlarm findAlarmShareLastByUserUuid(String userUuid);
 
 	/**
 	 * 根据useruuid查找UserShareAlarm

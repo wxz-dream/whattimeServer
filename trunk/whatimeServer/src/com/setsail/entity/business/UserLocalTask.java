@@ -20,8 +20,9 @@ public class UserLocalTask implements Serializable {
 	@Column(name="ALARM_TIME")
 	private Long alarmTime;
 
-	@Column(name="ALARM_UUID", length=100)
-	private String alarmUuid;
+	@ManyToOne
+	@JoinColumn(name = "ALARM_UUID")
+	private UserLocalAlarm userLocalAlarm;
 
 	@Column(name="BACKGROUND_URI", length=100)
 	private String backgroundUri;
@@ -104,12 +105,12 @@ public class UserLocalTask implements Serializable {
 		this.alarmTime = alarmTime;
 	}
 
-	public String getAlarmUuid() {
-		return this.alarmUuid;
+	public UserLocalAlarm getUserLocalAlarm() {
+		return userLocalAlarm;
 	}
 
-	public void setAlarmUuid(String alarmUuid) {
-		this.alarmUuid = alarmUuid;
+	public void setUserLocalAlarm(UserLocalAlarm userLocalAlarm) {
+		this.userLocalAlarm = userLocalAlarm;
 	}
 
 	public String getBackgroundUri() {

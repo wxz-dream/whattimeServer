@@ -12,7 +12,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.setsail.entity.business.UserShareAlarm;
 import com.setsail.entity.response.SystemState;
-import com.setsail.service.bussiness.UserShareAlrmService;
+import com.setsail.service.bussiness.UserShareAlarmService;
 /**
  * @desc 用户分享提醒的控制器
  * @author snow
@@ -20,12 +20,12 @@ import com.setsail.service.bussiness.UserShareAlrmService;
  */
 @Controller
 @RequestMapping("/android/userShareAlarm/")
-public class UserShareAlrmController {
+public class UserShareAlarmController {
 	
-	private Logger logger = Logger.getLogger(UserShareAlrmController.class);
+	private Logger logger = Logger.getLogger(UserShareAlarmController.class);
 	
 	@Autowired
-	private UserShareAlrmService userShareAlrmService;
+	private UserShareAlarmService userShareAlarmService;
 	
 	/**
 	 * 添加提醒
@@ -34,22 +34,22 @@ public class UserShareAlrmController {
 	 * @param userShare
 	 * @return
 	 */
-	@RequestMapping(value = "alrmShareAdd", method = RequestMethod.POST)
+	@RequestMapping(value = "alarmShareAdd", method = RequestMethod.POST)
 	@ResponseBody
-	public String alrmShareAdd(String userUuid,String mime,String userShareAlarm){
-		logger.info(" into UserShareAlrmController.alrmShareAdd");
+	public String alarmShareAdd(String userUuid,String mime,String userShareAlarm){
+		logger.info(" into UserShareAlarmController.alarmShareAdd");
 		UserShareAlarm userShare = JSONArray.parseObject(userShareAlarm, UserShareAlarm.class);
-		SystemState systemState = userShareAlrmService.alrmShareAddOrUpdate(userShare);
-		logger.info(" out UserShareAlrmController.alrmShareAdd");
+		SystemState systemState = userShareAlarmService.alarmShareAddOrUpdate(userShare);
+		logger.info(" out UserShareAlarmController.alarmShareAdd");
 		return JSON.toJSONString(systemState);
 	}
 	
 	public static void main(String[] args) {
 		System.out.println("====");
-		UserShareAlrmController u =new UserShareAlrmController();
+		UserShareAlarmController u =new UserShareAlarmController();
 		String alarm = "{\"alarmTime\":1395502800952,\"createTime\":1395502644604,\"des\":\"vuvuvubu\",\"endTime\":1396107420132,\"froms\":1,\"id\":2,\"isDel\":false,\"isEndJoin\":false,\"isOpen\":true,\"maxJoinNum\":10000,\"share\":\"0\",\"taskId\":2,\"taskUuid\":\"d21e4012-df9e-496f-bf52-f198ff32adf9\",\"tasks\":[{\"address\":\"uguvuv&\",\"alarmId\":2,\"alarmTime\":1395502800952,\"alarmUuid\":\"3bfd19ca-5bc8-48d9-a737-d3095a101504\",\"delayMinute\":1,\"delayOrder\":1,\"delayType\":1,\"des\":\"fyfufuf7\",\"id\":2,\"isDel\":false,\"isOpen\":true,\"music\":\"content://settings/system/alarm_alert\",\"notice\":\"jvjvjvuv\",\"playType\":0,\"repeatType\":1,\"shake\":true,\"title\":\"yufyfyw\",\"uuid\":\"d21e4012-df9e-496f-bf52-f198ff32adf9\"}],\"title\":\"yvyvyv\",\"type\":0,\"uptTime\":1395502690938,\"uuid\":\"3bfd19ca-5bc8-48d9-a737-d3095a101504\"}";
 		UserShareAlarm  ss = JSONObject.parseObject(alarm, UserShareAlarm.class);
-		u.alrmShareAdd("", "", alarm);
+		u.alarmShareAdd("", "", alarm);
 		System.out.println("===="+ss.getAlarmTime());
 	}
 	
@@ -60,13 +60,13 @@ public class UserShareAlrmController {
 	 * @param userShare
 	 * @return
 	 */
-	@RequestMapping(value = "alrmShareEdit", method = RequestMethod.POST)
+	@RequestMapping(value = "alarmShareEdit", method = RequestMethod.POST)
 	@ResponseBody
-	public String alrmShareEdit(String userUuid,String mime,String userShareAlarm){
-		logger.info(" into UserShareAlrmController.alrmShareEdit");
+	public String alarmShareEdit(String userUuid,String mime,String userShareAlarm){
+		logger.info(" into UserShareAlarmController.alarmShareEdit");
 		UserShareAlarm alarm = JSONArray.parseObject(userShareAlarm, UserShareAlarm.class);
-		SystemState systemState = userShareAlrmService.alrmShareAddOrUpdate(alarm);
-		logger.info(" out UserShareAlrmController.alrmShareEdit");
+		SystemState systemState = userShareAlarmService.alarmShareAddOrUpdate(alarm);
+		logger.info(" out UserShareAlarmController.alarmShareEdit");
 		return JSON.toJSONString(systemState);
 	}
 	
@@ -77,12 +77,12 @@ public class UserShareAlrmController {
 	 * @param alarm_uuid
 	 * @return
 	 */
-	@RequestMapping(value = "alrmShareDelete", method = RequestMethod.POST)
+	@RequestMapping(value = "alarmShareDelete", method = RequestMethod.POST)
 	@ResponseBody
-	public String alrmShareDelete(String userUuid,String mime,String alarmUuid){
-		logger.info(" into UserShareAlrmController.alrmShareDelete");
-		SystemState systemState = userShareAlrmService.alrmShareDelete(alarmUuid);
-		logger.info(" out UserShareAlrmController.alrmShareDelete");
+	public String alarmShareDelete(String userUuid,String mime,String alarmUuid){
+		logger.info(" into UserShareAlarmController.alarmShareDelete");
+		SystemState systemState = userShareAlarmService.alarmShareDelete(alarmUuid);
+		logger.info(" out UserShareAlarmController.alarmShareDelete");
 		return JSON.toJSONString(systemState);
 	}
 	
@@ -92,12 +92,12 @@ public class UserShareAlrmController {
 	 * @param mime
 	 * @return
 	 */
-	@RequestMapping(value = "alrmShareGetLastSyncTime", method = RequestMethod.POST)
+	@RequestMapping(value = "alarmShareGetLastSyncTime", method = RequestMethod.POST)
 	@ResponseBody
-	public String alrmShareGetLastSyncTime(String userUuid,String mime){
-		logger.info(" into UserShareAlrmController.alrmShareGetLastSyncTime");
-		SystemState systemState = userShareAlrmService.alrmShareGetLastSyncTime(userUuid);
-		logger.info(" out UserShareAlrmController.alrmShareGetLastSyncTime");
+	public String alarmShareGetLastSyncTime(String userUuid,String mime){
+		logger.info(" into UserShareAlarmController.alarmShareGetLastSyncTime");
+		SystemState systemState = userShareAlarmService.alarmShareGetLastSyncTime(userUuid);
+		logger.info(" out UserShareAlarmController.alarmShareGetLastSyncTime");
 		return JSON.toJSONString(systemState);
 	}
 	

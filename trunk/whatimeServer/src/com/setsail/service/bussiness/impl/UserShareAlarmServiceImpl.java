@@ -11,41 +11,41 @@ import com.setsail.entity.business.UserShareAlarm;
 import com.setsail.entity.response.StateEnum;
 import com.setsail.entity.response.SystemState;
 import com.setsail.repository.business.UserShareAlarmRepository;
-import com.setsail.service.bussiness.UserShareAlrmService;
+import com.setsail.service.bussiness.UserShareAlarmService;
 
-@Service("userShareAlrmService")
-public class UserShareAlrmServiceImpl implements UserShareAlrmService {
+@Service("userShareAlarmService")
+public class UserShareAlarmServiceImpl implements UserShareAlarmService {
 
 	@Autowired
 	private UserShareAlarmRepository userShareAlarmRepository;
 	
 	@Override
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
-	public SystemState alrmShareAddOrUpdate(UserShareAlarm userShare) {
+	public SystemState alarmShareAddOrUpdate(UserShareAlarm userShare) {
 		userShare.setUptTime((new Date()).getTime());
 		userShare.setSyncTime((new Date()).getTime());
 		userShare = userShareAlarmRepository.save(userShare);
-		SystemState SystemState = new SystemState(StateEnum.STATE_SUCCESS);
-		SystemState.setResInfo(userShare);
-		return SystemState;
+		SystemState systemState = new SystemState(StateEnum.STATE_SUCCESS);
+		systemState.setResInfo(userShare);
+		return systemState;
 	}
 
 	
 	@Override
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
-	public SystemState alrmShareDelete(String alarmUuid) {
+	public SystemState alarmShareDelete(String alarmUuid) {
 		userShareAlarmRepository.delete(alarmUuid);
-		SystemState SystemState = new SystemState(StateEnum.STATE_SUCCESS);
-		return SystemState;
+		SystemState systemState = new SystemState(StateEnum.STATE_SUCCESS);
+		return systemState;
 	}
 
 
 	@Override
-	public SystemState alrmShareGetLastSyncTime(String userUuid) {
-		UserShareAlarm userShare = userShareAlarmRepository.findAlrmShareLastByUserUuid(userUuid);
-		SystemState SystemState = new SystemState(StateEnum.STATE_SUCCESS);
-		SystemState.setResInfo(userShare);
-		return SystemState;
+	public SystemState alarmShareGetLastSyncTime(String userUuid) {
+		UserShareAlarm userShare = userShareAlarmRepository.findAlarmShareLastByUserUuid(userUuid);
+		SystemState systemState = new SystemState(StateEnum.STATE_SUCCESS);
+		systemState.setResInfo(userShare);
+		return systemState;
 	}
 	
 }
