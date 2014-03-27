@@ -21,7 +21,7 @@ public class AlarmCategory implements Serializable {
 	private String des;
 
 	@Column(name = "DEL")
-	private boolean del;
+	private Boolean del;
 
 	@Column(length = 50)
 	private String name;
@@ -42,11 +42,11 @@ public class AlarmCategory implements Serializable {
 		this.des = des;
 	}
 
-	public boolean isDel() {
+	public Boolean isDel() {
 		return del;
 	}
 
-	public void setDel(boolean del) {
+	public void setDel(Boolean del) {
 		this.del = del;
 	}
 

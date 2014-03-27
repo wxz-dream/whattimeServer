@@ -43,16 +43,16 @@ public class UserShareAlarm implements Serializable {
 	@Column(name="END_TIME")
 	private Long endTime;
 
-	private int froms;
+	private Integer froms;
 
 	@Column(name="DEL")
-	private boolean del;
+	private Boolean del;
 
 	@Column(name="END_JOIN")
-	private boolean endJoin;
+	private Boolean endJoin;
 
 	@Column(name="OPEN")
-	private boolean open;
+	private Boolean open;
 
 	@Column(name="JOIN_NUM")
 	private Long joinNum;
@@ -79,7 +79,7 @@ public class UserShareAlarm implements Serializable {
 	@Column(length=100)
 	private String title;
 
-	private int type;
+	private Integer type;
 
 	@Column(name="UPT_TIME")
 	private Long uptTime;
@@ -142,36 +142,36 @@ public class UserShareAlarm implements Serializable {
 		this.endTime = endTime;
 	}
 
-	public int getFroms() {
+	public Integer getFroms() {
 		return this.froms;
 	}
 
-	public void setFroms(int froms) {
+	public void setFroms(Integer froms) {
 		this.froms = froms;
 	}
 
 
-	public boolean isDel() {
+	public Boolean isDel() {
 		return del;
 	}
 
-	public void setDel(boolean del) {
+	public void setDel(Boolean del) {
 		this.del = del;
 	}
 
-	public boolean isEndJoin() {
+	public Boolean isEndJoin() {
 		return endJoin;
 	}
 
-	public void setEndJoin(boolean endJoin) {
+	public void setEndJoin(Boolean endJoin) {
 		this.endJoin = endJoin;
 	}
 
-	public boolean isOpen() {
+	public Boolean isOpen() {
 		return open;
 	}
 
-	public void setOpen(boolean open) {
+	public void setOpen(Boolean open) {
 		this.open = open;
 	}
 
@@ -239,11 +239,11 @@ public class UserShareAlarm implements Serializable {
 		this.title = title;
 	}
 
-	public int getType() {
+	public Integer getType() {
 		return this.type;
 	}
 
-	public void setType(int type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 

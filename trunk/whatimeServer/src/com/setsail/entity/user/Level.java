@@ -22,7 +22,7 @@ public class Level implements Serializable {
 	private String authUuid;
 
 	@Column(name="LEVEL_NUM")
-	private int levelNum;
+	private Integer levelNum;
 
 	public Level() {
 	}
@@ -43,11 +43,11 @@ public class Level implements Serializable {
 		this.authUuid = authUuid;
 	}
 
-	public int getLevelNum() {
+	public Integer getLevelNum() {
 		return this.levelNum;
 	}
 
-	public void setLevelNum(int levelNum) {
+	public void setLevelNum(Integer levelNum) {
 		this.levelNum = levelNum;
 	}
 

@@ -35,13 +35,13 @@ public class UserLocalAlarm implements Serializable {
 	@Column(length = 500)
 	private String des;
 
-	private int froms;
+	private Integer froms;
 
 	@Column(name = "DEL")
-	private boolean del;
+	private Boolean del;
 
 	@Column(name = "OPEN")
-	private boolean open;
+	private Boolean open;
 
 	@Column(length = 50)
 	private String share;
@@ -55,7 +55,7 @@ public class UserLocalAlarm implements Serializable {
 	@Column(length = 100)
 	private String title;
 
-	private int type;
+	private Integer type;
 
 	@Column(name = "UPT_TIME")
 	private Long uptTime;
@@ -102,11 +102,11 @@ public class UserLocalAlarm implements Serializable {
 		this.des = des;
 	}
 
-	public int getFroms() {
+	public Integer getFroms() {
 		return this.froms;
 	}
 
-	public void setFroms(int froms) {
+	public void setFroms(Integer froms) {
 		this.froms = froms;
 	}
 
@@ -142,11 +142,11 @@ public class UserLocalAlarm implements Serializable {
 		this.title = title;
 	}
 
-	public int getType() {
+	public Integer getType() {
 		return this.type;
 	}
 
-	public void setType(int type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 
@@ -166,19 +166,19 @@ public class UserLocalAlarm implements Serializable {
 		this.userUuid = userUuid;
 	}
 
-	public boolean isDel() {
+	public Boolean isDel() {
 		return del;
 	}
 
-	public void setDel(boolean del) {
+	public void setDel(Boolean del) {
 		this.del = del;
 	}
 
-	public boolean isOpen() {
+	public Boolean isOpen() {
 		return open;
 	}
 
-	public void setOpen(boolean open) {
+	public void setOpen(Boolean open) {
 		this.open = open;
 	}
 
