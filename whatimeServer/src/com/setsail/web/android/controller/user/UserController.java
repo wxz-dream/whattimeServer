@@ -80,6 +80,16 @@ public class UserController {
 		return JSON.toJSONString(us);
 
 	}
+	
+	@RequestMapping(value = "getUser", method = RequestMethod.POST)
+	@ResponseBody
+	public String getUser(String userUuid, String mime,String uuid) {
+		
+		SystemState us = userService.findUserByUuid(uuid);
+		
+		return JSON.toJSONString(us);
+
+	}
 
 	@RequestMapping("ex")
 	@ResponseBody

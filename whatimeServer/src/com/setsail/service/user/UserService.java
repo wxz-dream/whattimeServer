@@ -47,4 +47,6 @@ public interface UserService {
 
 	public abstract SystemState updateUserPassword(String uuid, String mime,
 			String oldPassword, String newPassword);
+
+	public abstract SystemState findUserByUuid(String uuid);
 }
