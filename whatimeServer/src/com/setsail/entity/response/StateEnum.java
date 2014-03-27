@@ -7,10 +7,10 @@ public enum StateEnum {
 	STATE_FAIL(2, "fail"),
 	STATE_NOLOGIN(3, "nologin");
 	
-	public final int STATE;
+	public final Integer STATE;
 	public final String STATEINFO;
 	
-	private StateEnum(int state, String stateInfo){
+	private StateEnum(Integer state, String stateInfo){
 		this.STATE = state;
 		this.STATEINFO = stateInfo;
 	}

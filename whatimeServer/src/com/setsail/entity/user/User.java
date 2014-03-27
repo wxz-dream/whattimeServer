@@ -20,9 +20,9 @@ public class User implements Serializable {
 	private String uuid;
 
 	@Column(name="AUTH_TYPE")
-	private int authType;
+	private Integer authType;
 
-	private boolean available;
+	private Boolean available;
 
 	@Column(length=50)
 	private String city;
@@ -38,7 +38,7 @@ public class User implements Serializable {
 	private String identityCard;
 
 	@Column(name="DEL")
-	private boolean del;
+	private Boolean del;
 
 	@Column(name="LEVEL_UUID", length=100)
 	private String levelUuid;
@@ -65,7 +65,7 @@ public class User implements Serializable {
 	@Column(name="REAL_NAME", length=100)
 	private String realName;
 
-	private int sex;
+	private Integer sex;
 
 	@Column(length=50)
 	private String telphone;
@@ -95,11 +95,11 @@ public class User implements Serializable {
 		this.uuid = uuid;
 	}
 
-	public int getAuthType() {
+	public Integer getAuthType() {
 		return this.authType;
 	}
 
-	public void setAuthType(int authType) {
+	public void setAuthType(Integer authType) {
 		this.authType = authType;
 	}
 
@@ -199,11 +199,11 @@ public class User implements Serializable {
 		this.realName = realName;
 	}
 
-	public int getSex() {
+	public Integer getSex() {
 		return this.sex;
 	}
 
-	public void setSex(int sex) {
+	public void setSex(Integer sex) {
 		this.sex = sex;
 	}
 
@@ -239,19 +239,19 @@ public class User implements Serializable {
 		this.userphotoUri = userphotoUri;
 	}
 
-	public boolean isAvailable() {
+	public Boolean isAvailable() {
 		return available;
 	}
 
-	public void setAvailable(boolean available) {
+	public void setAvailable(Boolean available) {
 		this.available = available;
 	}
 
-	public boolean isDel() {
+	public Boolean isDel() {
 		return del;
 	}
 
-	public void setDel(boolean del) {
+	public void setDel(Boolean del) {
 		this.del = del;
 	}
 

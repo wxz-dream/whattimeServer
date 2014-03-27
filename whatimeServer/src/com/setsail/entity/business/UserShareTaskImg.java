@@ -18,7 +18,7 @@ public class UserShareTaskImg implements Serializable {
 	private String uuid;
 
 	@Column(name = "DEL")
-	private boolean del;
+	private Boolean del;
 
 	@Column(name = "TASK_UUID", length = 100)
 	private String taskUuid;
@@ -37,11 +37,11 @@ public class UserShareTaskImg implements Serializable {
 		this.uuid = uuid;
 	}
 
-	public boolean isDel() {
+	public Boolean isDel() {
 		return del;
 	}
 
-	public void setDel(boolean del) {
+	public void setDel(Boolean del) {
 		this.del = del;
 	}
 

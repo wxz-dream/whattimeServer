@@ -28,7 +28,7 @@ public class UserLocalTask implements Serializable {
 	private String backgroundUri;
 
 	@Column(name="CLOCK_TYPE")
-	private int clockType;
+	private Integer clockType;
 
 	
 	@Column(name="CREATE_TIME")
@@ -39,38 +39,38 @@ public class UserLocalTask implements Serializable {
 	
 	
 	@Column(name="ADVANCE_ORDER")
-	private int advanceOrder;
+	private Integer advanceOrder;
 	
 	@Column(length=500)
 	private String des;
 
 	@Column(name="DEL")
-	private boolean del;
+	private Boolean del;
 
 	@Column(name="OPEN")
-	private boolean open;
+	private Boolean open;
 
 	@Column(length=100)
 	private String music;
 
 	@Column(name="PLAY_MINUTE")
-	private int playMinute;
+	private Integer playMinute;
 
 	@Column(name="PLAY_MUSIC", length=100)
 	private String playMusic;
 
 	@Column(name="PLAY_TYPE")
-	private int playType;
+	private Integer playType;
 
 	@Column(name="REPEAT_INFO", length=100)
 	private String repeatInfo;
 
 	@Column(name="REPEAT_TYPE")
-	private int repeatType;
+	private Integer repeatType;
 
-	private boolean shake;
+	private Boolean shake;
 
-	private boolean skip;
+	private Boolean skip;
 
 	@Column(length=100)
 	private String surpervise;
@@ -121,11 +121,11 @@ public class UserLocalTask implements Serializable {
 		this.backgroundUri = backgroundUri;
 	}
 
-	public int getClockType() {
+	public Integer getClockType() {
 		return this.clockType;
 	}
 
-	public void setClockType(int clockType) {
+	public void setClockType(Integer clockType) {
 		this.clockType = clockType;
 	}
 
@@ -153,11 +153,11 @@ public class UserLocalTask implements Serializable {
 		this.music = music;
 	}
 
-	public int getPlayMinute() {
+	public Integer getPlayMinute() {
 		return this.playMinute;
 	}
 
-	public void setPlayMinute(int playMinute) {
+	public void setPlayMinute(Integer playMinute) {
 		this.playMinute = playMinute;
 	}
 
@@ -169,11 +169,11 @@ public class UserLocalTask implements Serializable {
 		this.playMusic = playMusic;
 	}
 
-	public int getPlayType() {
+	public Integer getPlayType() {
 		return this.playType;
 	}
 
-	public void setPlayType(int playType) {
+	public void setPlayType(Integer playType) {
 		this.playType = playType;
 	}
 
@@ -185,11 +185,11 @@ public class UserLocalTask implements Serializable {
 		this.repeatInfo = repeatInfo;
 	}
 
-	public int getRepeatType() {
+	public Integer getRepeatType() {
 		return this.repeatType;
 	}
 
-	public void setRepeatType(int repeatType) {
+	public void setRepeatType(Integer repeatType) {
 		this.repeatType = repeatType;
 	}
 
@@ -233,43 +233,43 @@ public class UserLocalTask implements Serializable {
 		this.setTime = setTime;
 	}
 
-	public int getAdvanceOrder() {
+	public Integer getAdvanceOrder() {
 		return advanceOrder;
 	}
 
-	public void setAdvanceOrder(int advanceOrder) {
+	public void setAdvanceOrder(Integer advanceOrder) {
 		this.advanceOrder = advanceOrder;
 	}
 
-	public boolean isDel() {
+	public Boolean isDel() {
 		return del;
 	}
 
-	public void setDel(boolean del) {
+	public void setDel(Boolean del) {
 		this.del = del;
 	}
 
-	public boolean isOpen() {
+	public Boolean isOpen() {
 		return open;
 	}
 
-	public void setOpen(boolean open) {
+	public void setOpen(Boolean open) {
 		this.open = open;
 	}
 
-	public boolean isShake() {
+	public Boolean isShake() {
 		return shake;
 	}
 
-	public void setShake(boolean shake) {
+	public void setShake(Boolean shake) {
 		this.shake = shake;
 	}
 
-	public boolean isSkip() {
+	public Boolean isSkip() {
 		return skip;
 	}
 
-	public void setSkip(boolean skip) {
+	public void setSkip(Boolean skip) {
 		this.skip = skip;
 	}
 

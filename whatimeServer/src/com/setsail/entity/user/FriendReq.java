@@ -17,7 +17,7 @@ public class FriendReq implements Serializable {
 	@Column(unique=true, nullable=false, length=100)
 	private String uuid;
 
-	private int access;
+	private Integer access;
 
 	@Column(name="FRIEND_REQ_UUID", length=100)
 	private String friendReqUuid;
@@ -52,11 +52,11 @@ public class FriendReq implements Serializable {
 		this.uuid = uuid;
 	}
 
-	public int getAccess() {
+	public Integer getAccess() {
 		return this.access;
 	}
 
-	public void setAccess(int access) {
+	public void setAccess(Integer access) {
 		this.access = access;
 	}
 
