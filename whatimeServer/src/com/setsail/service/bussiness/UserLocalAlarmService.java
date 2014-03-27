@@ -1,6 +1,6 @@
 package com.setsail.service.bussiness;
 
-import com.setsail.entity.business.UserShareAlarm;
+import com.setsail.entity.business.UserLocalAlarm;
 import com.setsail.entity.response.SystemState;
 
 /**
@@ -8,25 +8,25 @@ import com.setsail.entity.response.SystemState;
  * @author snow
  *
  */
-public interface UserShareAlrmService {
+public interface UserLocalAlarmService {
 
 	/**
 	 * 添加活修改用户提醒
-	 * @param userShare
+	 * @param userLocal
 	 */
-	public SystemState alrmShareAddOrUpdate(UserShareAlarm userShare);
+	public SystemState alarmLocalAddOrUpdate(UserLocalAlarm userLocal);
 
 	/**
 	 * 删除用户提醒
 	 * @param alarm_uuid
 	 */
-	public SystemState alrmShareDelete(String alarm_uuid);
+	public SystemState alarmLocalDelete(String alarm_uuid);
 
 	/**
 	 * 获取最后一次同步时间
 	 * @param userUuid
 	 * @return
 	 */
-	public SystemState alrmShareGetLastSyncTime(String userUuid);
+	public SystemState alarmLocalGetLastSyncTime(String userUuid);
 
 }
