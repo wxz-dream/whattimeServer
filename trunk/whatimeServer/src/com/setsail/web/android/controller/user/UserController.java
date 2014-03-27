@@ -55,10 +55,10 @@ public class UserController {
 	 * */
 	@RequestMapping(value = "uptPassword", method = RequestMethod.POST)
 	@ResponseBody
-	public String uptPassword(String uuid, String mime, String oldPassword,
+	public String uptPassword(String userUuid, String mime, String oldPassword,
 			String newPassword) {
 		
-		SystemState us = userService.updateUserPassword(uuid, mime, oldPassword,
+		SystemState us = userService.updateUserPassword(userUuid, mime, oldPassword,
 				newPassword);
 		
 		return JSON.toJSONString(us);
@@ -73,9 +73,9 @@ public class UserController {
 	 * */
 	@RequestMapping(value = "uptUserInfo", method = RequestMethod.POST)
 	@ResponseBody
-	public String uptUserInfo(User user) {
-
-		SystemState us = userService.updateUser(user);
+	public String uptUserInfo(String userUuid, String mime,String user) {
+		User u = JSON.parseObject(user, User.class);
+		SystemState us = userService.updateUser(u);
 		
 		return JSON.toJSONString(us);
 
