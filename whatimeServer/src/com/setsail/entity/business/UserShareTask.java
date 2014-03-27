@@ -1,105 +1,101 @@
 package com.setsail.entity.business;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
-import com.alibaba.fastjson.annotation.JSONField;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the user_share_task database table.
  * 
  */
 @Entity
-@Table(name="user_share_task")
-@NamedQuery(name="UserShareTask.findAll", query="SELECT u FROM UserShareTask u")
+@Table(name = "user_share_task")
+@NamedQuery(name = "UserShareTask.findAll", query = "SELECT u FROM UserShareTask u")
 public class UserShareTask implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(unique=true, nullable=false, length=100)
+	@Column(unique = true, nullable = false, length = 100)
 	private String uuid;
 
-	@Column(length=100)
+	@Column(length = 100)
 	private String address;
 
-	@Column(name="ALARM_TIME")
+	@Column(name = "ALARM_TIME")
 	private Long alarmTime;
 
-//	@Column(name="ALARM_UUID", length=100)
-//	private String alarmUuid;
-	
 	@ManyToOne
-	@JoinColumn(name="ALARM_UUID")
+	@JoinColumn(name = "ALARM_UUID")
 	private UserShareAlarm userShareAlarm;
-	
-	@Column(name="BACKGROUND_URI", length=100)
+
+	@Column(name = "BACKGROUND_URI", length = 100)
 	private String backgroundUri;
 
-	@Column(name="CLOCK_TYPE")
+	@Column(name = "CLOCK_TYPE")
 	private int clockType;
 
-	
-	@Column(name="CREATE_TIME")
+	@Column(name = "CREATE_TIME")
 	private Long createTime;
 
-	@Column(name="DELAY_MINUTE")
-	private int delayMinute;
+	@Column(name = "STE_TIME")
+	private Long setTime;
 
-	@Column(name="DELAY_ORDER")
-	private int delayOrder;
+	@Column(name = "ADVANCE_ORDER")
+	private int advanceOrder;
 
-	@Column(name="DELAY_TYPE")
-	private int delayType;
-
-	@Column(length=500)
+	@Column(length = 500)
 	private String des;
 
-	@Column(name="GPS_ADDRESS", length=100)
+	@Column(name = "GPS_ADDRESS", length = 100)
 	private String gpsAddress;
 
-	@Column(name="DEL")
+	@Column(name = "DEL")
 	private boolean del;
 
-	@Column(name="OPEN")
+	@Column(name = "OPEN")
 	private boolean open;
 
-	@Column(length=100)
+	@Column(length = 100)
 	private String music;
 
-	@Column(length=500)
+	@Column(length = 500)
 	private String notice;
 
-	@Column(name="PLAY_MINUTE")
+	@Column(name = "PLAY_MINUTE")
 	private int playMinute;
 
-	@Column(name="PLAY_MUSIC", length=100)
+	@Column(name = "PLAY_MUSIC", length = 100)
 	private String playMusic;
 
-	@Column(name="PLAY_TYPE")
+	@Column(name = "PLAY_TYPE")
 	private int playType;
 
-	@Column(name="REPEAT_INFO", length=100)
+	@Column(name = "REPEAT_INFO", length = 100)
 	private String repeatInfo;
 
-	@Column(name="REPEAT_TYPE")
+	@Column(name = "REPEAT_TYPE")
 	private int repeatType;
 
 	private boolean shake;
 
 	private boolean skip;
 
-	@Column(length=100)
+	@Column(length = 100)
 	private String surpervise;
 
-	
-	@Column(name="SYNC_TIME")
+	@Column(name = "SYNC_TIME")
 	private Long syncTime;
 
-	@Column(length=100)
+	@Column(length = 100)
 	private String title;
 
-	
-	@Column(name="UPT_TIME")
+	@Column(name = "UPT_TIME")
 	private Long uptTime;
 
 	public UserShareTask() {
@@ -129,17 +125,18 @@ public class UserShareTask implements Serializable {
 		this.alarmTime = alarmTime;
 	}
 
-//	public String getAlarmUuid() {
-//		return this.alarmUuid;
-//	}
-//
-//	public void setAlarmUuid(String alarmUuid) {
-//		this.alarmUuid = alarmUuid;
-//	}
-	
+	// public String getAlarmUuid() {
+	// return this.alarmUuid;
+	// }
+	//
+	// public void setAlarmUuid(String alarmUuid) {
+	// this.alarmUuid = alarmUuid;
+	// }
+
 	public UserShareAlarm getUserShareAlarm() {
 		return userShareAlarm;
 	}
+
 	public void setUserShareAlarm(UserShareAlarm userShareAlarm) {
 		this.userShareAlarm = userShareAlarm;
 	}
@@ -168,30 +165,6 @@ public class UserShareTask implements Serializable {
 		this.createTime = createTime;
 	}
 
-	public int getDelayMinute() {
-		return this.delayMinute;
-	}
-
-	public void setDelayMinute(int delayMinute) {
-		this.delayMinute = delayMinute;
-	}
-
-	public int getDelayOrder() {
-		return this.delayOrder;
-	}
-
-	public void setDelayOrder(int delayOrder) {
-		this.delayOrder = delayOrder;
-	}
-
-	public int getDelayType() {
-		return this.delayType;
-	}
-
-	public void setDelayType(int delayType) {
-		this.delayType = delayType;
-	}
-
 	public String getDes() {
 		return this.des;
 	}
@@ -207,9 +180,6 @@ public class UserShareTask implements Serializable {
 	public void setGpsAddress(String gpsAddress) {
 		this.gpsAddress = gpsAddress;
 	}
-
-
-
 
 	public String getMusic() {
 		return this.music;
@@ -329,6 +299,22 @@ public class UserShareTask implements Serializable {
 
 	public void setUptTime(Long uptTime) {
 		this.uptTime = uptTime;
+	}
+
+	public Long getSetTime() {
+		return setTime;
+	}
+
+	public void setSetTime(Long setTime) {
+		this.setTime = setTime;
+	}
+
+	public int getAdvanceOrder() {
+		return advanceOrder;
+	}
+
+	public void setAdvanceOrder(int advanceOrder) {
+		this.advanceOrder = advanceOrder;
 	}
 
 }

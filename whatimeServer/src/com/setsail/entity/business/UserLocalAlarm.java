@@ -29,11 +29,11 @@ public class UserLocalAlarm implements Serializable {
 
 	private int froms;
 
-	@Column(name="IS_DEL")
-	private int isDel;
+	@Column(name="DEL")
+	private boolean del;
 
-	@Column(name="IS_OPEN")
-	private int isOpen;
+	@Column(name="OPEN")
+	private boolean open;
 
 	@Column(length=50)
 	private String share;
@@ -100,22 +100,6 @@ public class UserLocalAlarm implements Serializable {
 		this.froms = froms;
 	}
 
-	public int getIsDel() {
-		return this.isDel;
-	}
-
-	public void setIsDel(int isDel) {
-		this.isDel = isDel;
-	}
-
-	public int getIsOpen() {
-		return this.isOpen;
-	}
-
-	public void setIsOpen(int isOpen) {
-		this.isOpen = isOpen;
-	}
-
 	public String getShare() {
 		return this.share;
 	}
@@ -170,6 +154,22 @@ public class UserLocalAlarm implements Serializable {
 
 	public void setUserUuid(String userUuid) {
 		this.userUuid = userUuid;
+	}
+
+	public boolean isDel() {
+		return del;
+	}
+
+	public void setDel(boolean del) {
+		this.del = del;
+	}
+
+	public boolean isOpen() {
+		return open;
+	}
+
+	public void setOpen(boolean open) {
+		this.open = open;
 	}
 
 }

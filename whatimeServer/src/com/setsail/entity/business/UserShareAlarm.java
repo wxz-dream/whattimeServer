@@ -12,11 +12,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
-
-import com.alibaba.fastjson.annotation.JSONField;
-import com.alibaba.fastjson.annotation.JSONType;
-
 /**
  * The persistent class for the user_share_alarm database table.
  * 
@@ -34,8 +29,8 @@ public class UserShareAlarm implements Serializable {
 	@Column(name="ALARM_TIME")
 	private Long alarmTime;
 
-	@Column(name="CATE_UUID", length=100)
-	private String cateUuid;
+	@Column(name="CATEID", length=100)
+	private Long cateId;
 
 	
 	@Column(name="CREATE_TIME")
@@ -115,12 +110,12 @@ public class UserShareAlarm implements Serializable {
 		this.alarmTime = alarmTime;
 	}
 
-	public String getCateUuid() {
-		return this.cateUuid;
+	public Long getCateId() {
+		return cateId;
 	}
 
-	public void setCateUuid(String cateUuid) {
-		this.cateUuid = cateUuid;
+	public void setCateId(Long cateId) {
+		this.cateId = cateId;
 	}
 
 	public Long getCreateTime() {

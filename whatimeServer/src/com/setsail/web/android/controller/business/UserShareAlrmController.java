@@ -108,6 +108,8 @@ public class UserShareAlrmController {
 	 * @return
 	 */
 	public String alrmShareSync(String userUuid,String mime,long sync_time){
+		
+		
 		return "";
 	}
 
