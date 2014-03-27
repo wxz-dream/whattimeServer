@@ -14,22 +14,9 @@
 		<param-value>classpath*:/spring-context.xml</param-value>
 	</context-param>
 	
-	 <!-- 设置 log4j.properties 的路径 -->
-    <context-param>
-       <param-name>log4jConfigLocation</param-name>
-       <param-value>classpath:/log4j.properties</param-value>
-    </context-param>
-
-    <!-- 设置刷新时间间隔 -->
-    <context-param>
-       <param-name>log4jRefreshInterval</param-name>
-       <param-value>10000</param-value>
-    </context-param>
-
-   <!--spring log4j监听器-->  
-   <listener>      
-       <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>      
-   </listener>
+	<listener>
+		<listener-class>com.setsail.web.listener.MemoryListener</listener-class>
+	</listener>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
