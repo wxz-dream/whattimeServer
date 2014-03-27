@@ -73,8 +73,9 @@ public class UserFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain fc) throws IOException, ServletException {
+		
 		String url = ((HttpServletRequest) request).getServletPath();
-
+		
 		// 需要登陆验证
 		if (!contains(noLoginAuthURL, url)) {
 			String RMIME = SstringUtils.getNotNull(request.getParameter(MIME))
