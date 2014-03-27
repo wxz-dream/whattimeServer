@@ -32,24 +32,22 @@ public class UserLocalTask implements Serializable {
 	
 	@Column(name="CREATE_TIME")
 	private Long createTime;
-
-	@Column(name="DELAY_MINUTE")
-	private int delayMinute;
-
-	@Column(name="DELAY_ORDER")
-	private int delayOrder;
-
-	@Column(name="DELAY_TYPE")
-	private int delayType;
-
+	
+	@Column(name="STE_TIME")
+	private Long setTime;
+	
+	
+	@Column(name="ADVANCE_ORDER")
+	private int advanceOrder;
+	
 	@Column(length=500)
 	private String des;
 
-	@Column(name="IS_DEL")
-	private int isDel;
+	@Column(name="DEL")
+	private boolean del;
 
-	@Column(name="IS_OPEN")
-	private int isOpen;
+	@Column(name="OPEN")
+	private boolean open;
 
 	@Column(length=100)
 	private String music;
@@ -69,9 +67,9 @@ public class UserLocalTask implements Serializable {
 	@Column(name="REPEAT_TYPE")
 	private int repeatType;
 
-	private int shake;
+	private boolean shake;
 
-	private int skip;
+	private boolean skip;
 
 	@Column(length=100)
 	private String surpervise;
@@ -138,52 +136,12 @@ public class UserLocalTask implements Serializable {
 		this.createTime = createTime;
 	}
 
-	public int getDelayMinute() {
-		return this.delayMinute;
-	}
-
-	public void setDelayMinute(int delayMinute) {
-		this.delayMinute = delayMinute;
-	}
-
-	public int getDelayOrder() {
-		return this.delayOrder;
-	}
-
-	public void setDelayOrder(int delayOrder) {
-		this.delayOrder = delayOrder;
-	}
-
-	public int getDelayType() {
-		return this.delayType;
-	}
-
-	public void setDelayType(int delayType) {
-		this.delayType = delayType;
-	}
-
 	public String getDes() {
 		return this.des;
 	}
 
 	public void setDes(String des) {
 		this.des = des;
-	}
-
-	public int getIsDel() {
-		return this.isDel;
-	}
-
-	public void setIsDel(int isDel) {
-		this.isDel = isDel;
-	}
-
-	public int getIsOpen() {
-		return this.isOpen;
-	}
-
-	public void setIsOpen(int isOpen) {
-		this.isOpen = isOpen;
 	}
 
 	public String getMusic() {
@@ -234,22 +192,6 @@ public class UserLocalTask implements Serializable {
 		this.repeatType = repeatType;
 	}
 
-	public int getShake() {
-		return this.shake;
-	}
-
-	public void setShake(int shake) {
-		this.shake = shake;
-	}
-
-	public int getSkip() {
-		return this.skip;
-	}
-
-	public void setSkip(int skip) {
-		this.skip = skip;
-	}
-
 	public String getSurpervise() {
 		return this.surpervise;
 	}
@@ -280,6 +222,54 @@ public class UserLocalTask implements Serializable {
 
 	public void setUptTime(Long uptTime) {
 		this.uptTime = uptTime;
+	}
+
+	public Long getSetTime() {
+		return setTime;
+	}
+
+	public void setSetTime(Long setTime) {
+		this.setTime = setTime;
+	}
+
+	public int getAdvanceOrder() {
+		return advanceOrder;
+	}
+
+	public void setAdvanceOrder(int advanceOrder) {
+		this.advanceOrder = advanceOrder;
+	}
+
+	public boolean isDel() {
+		return del;
+	}
+
+	public void setDel(boolean del) {
+		this.del = del;
+	}
+
+	public boolean isOpen() {
+		return open;
+	}
+
+	public void setOpen(boolean open) {
+		this.open = open;
+	}
+
+	public boolean isShake() {
+		return shake;
+	}
+
+	public void setShake(boolean shake) {
+		this.shake = shake;
+	}
+
+	public boolean isSkip() {
+		return skip;
+	}
+
+	public void setSkip(boolean skip) {
+		this.skip = skip;
 	}
 
 }

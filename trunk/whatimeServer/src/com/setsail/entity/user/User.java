@@ -22,7 +22,7 @@ public class User implements Serializable {
 	@Column(name="AUTH_TYPE")
 	private int authType;
 
-	private int available;
+	private boolean available;
 
 	@Column(length=50)
 	private String city;
@@ -37,8 +37,8 @@ public class User implements Serializable {
 	@Column(name="IDENTITY_CARD", length=50)
 	private String identityCard;
 
-	@Column(name="IS_DEL")
-	private int isDel;
+	@Column(name="DEL")
+	private boolean del;
 
 	@Column(name="LEVEL_UUID", length=100)
 	private String levelUuid;
@@ -103,14 +103,6 @@ public class User implements Serializable {
 		this.authType = authType;
 	}
 
-	public int getAvailable() {
-		return this.available;
-	}
-
-	public void setAvailable(int available) {
-		this.available = available;
-	}
-
 	public String getCity() {
 		return this.city;
 	}
@@ -141,14 +133,6 @@ public class User implements Serializable {
 
 	public void setIdentityCard(String identityCard) {
 		this.identityCard = identityCard;
-	}
-
-	public int getIsDel() {
-		return this.isDel;
-	}
-
-	public void setIsDel(int isDel) {
-		this.isDel = isDel;
 	}
 
 	public String getLevelUuid() {
@@ -253,6 +237,22 @@ public class User implements Serializable {
 
 	public void setUserphotoUri(String userphotoUri) {
 		this.userphotoUri = userphotoUri;
+	}
+
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+
+	public boolean isDel() {
+		return del;
+	}
+
+	public void setDel(boolean del) {
+		this.del = del;
 	}
 
 }

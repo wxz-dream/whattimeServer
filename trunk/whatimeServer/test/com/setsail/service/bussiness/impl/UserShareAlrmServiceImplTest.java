@@ -1,25 +1,10 @@
 package com.setsail.service.bussiness.impl;
 
-import static org.junit.Assert.fail;
 
-import java.util.Date;
-
-import javax.annotation.Resource;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import com.alibaba.fastjson.JSONObject;
-import com.setsail.entity.business.UserShareAlarm;
-import com.setsail.repository.business.UserShareAlarmRepository;
-import com.setsail.service.bussiness.UserShareAlrmService;
-
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"/wtserver-servlet.xml","/repository.xml"})
+/*@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations={"/wtserver-servlet.xml","/repository.xml"})*/
 public class UserShareAlrmServiceImplTest {
-	
+	/*
 	
 	@Resource
 	private UserShareAlrmService userShareAlrmService;
@@ -50,6 +35,6 @@ public class UserShareAlrmServiceImplTest {
 	
 	public static void main(String[] args) {
 		System.out.println("===");
-	}
+	}*/
 
 }
