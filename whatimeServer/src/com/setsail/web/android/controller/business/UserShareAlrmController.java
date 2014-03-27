@@ -62,9 +62,10 @@ public class UserShareAlrmController {
 	 */
 	@RequestMapping(value = "alrmShareEdit", method = RequestMethod.POST)
 	@ResponseBody
-	public String alrmShareEdit(String userUuid,String mime,UserShareAlarm userShare){
+	public String alrmShareEdit(String userUuid,String mime,String userShareAlarm){
 		logger.info(" into UserShareAlrmController.alrmShareEdit");
-		SystemState systemState = userShareAlrmService.alrmShareAddOrUpdate(userShare);
+		UserShareAlarm alarm = JSONArray.parseObject(userShareAlarm, UserShareAlarm.class);
+		SystemState systemState = userShareAlrmService.alrmShareAddOrUpdate(alarm);
 		logger.info(" out UserShareAlrmController.alrmShareEdit");
 		return JSON.toJSONString(systemState);
 	}
