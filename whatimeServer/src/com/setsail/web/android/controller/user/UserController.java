@@ -39,9 +39,10 @@ public class UserController {
 	@Auth
 	@RequestMapping(value = "registUser", method = RequestMethod.POST)
 	@ResponseBody
-	public String registUser(User user) {
+	public String registUser(String user) {
 		
-		SystemState us = userService.saveUser(user);
+		User u = JSON.parseObject(user, User.class);
+		SystemState us = userService.saveUser(u);
 		
 		return JSON.toJSONString(us);
 	}

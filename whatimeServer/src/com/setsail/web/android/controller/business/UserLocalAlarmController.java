@@ -97,10 +97,13 @@ public class UserLocalAlarmController {
 	 * @param sync_time
 	 * @return
 	 */
-	public String alrmLocalSync(String userUuid,String mime,long sync_time){
-		
-		
-		return "";
+	@RequestMapping(value = "alarmLocalSync", method = RequestMethod.POST)
+	@ResponseBody
+	public String alarmLocalSync(String userUuid,String mime,long syncTime){
+		logger.info(" into UserLocalAlarmController.alrmLocalSync");
+		SystemState systemState = userLocalAlarmService.alrmLocalSync(userUuid,syncTime);
+		logger.info(" out UserLocalAlarmController.alrmLocalSync");
+		return JSON.toJSONString(systemState);
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.setsail.service.bussiness.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,7 +45,19 @@ public class UserLocalAlarmServiceImpl implements UserLocalAlarmService {
 	public SystemState alarmLocalGetLastSyncTime(String userUuid) {
 		UserLocalAlarm userLocal = userLocalAlarmRepository.findAlarmLocalLastByUserUuid(userUuid);
 		SystemState systemState = new SystemState(StateEnum.STATE_SUCCESS);
-		systemState.setResInfo(userLocal);
+		if(userLocal!=null)
+		{
+			systemState.setResInfo("{syncTime:"+userLocal.getSyncTime()+"}");
+		}
+		return systemState;
+	}
+
+
+	@Override
+	public SystemState alrmLocalSync(String userUuid, long syncTime) {
+		List<UserLocalAlarm> userLocals = userLocalAlarmRepository.findAlarmLocalLastBySync(userUuid,syncTime);
+		SystemState systemState = new SystemState(StateEnum.STATE_SUCCESS);
+		systemState.setResInfo(userLocals);
 		return systemState;
 	}
 	

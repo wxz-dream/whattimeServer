@@ -102,7 +102,7 @@ public class UserShareTask implements Serializable {
 	}
 
 	public String getUuid() {
-		return this.uuid;
+		return uuid;
 	}
 
 	public void setUuid(String uuid) {
@@ -110,7 +110,7 @@ public class UserShareTask implements Serializable {
 	}
 
 	public String getAddress() {
-		return this.address;
+		return address;
 	}
 
 	public void setAddress(String address) {
@@ -134,7 +134,7 @@ public class UserShareTask implements Serializable {
 	}
 
 	public String getBackgroundUri() {
-		return this.backgroundUri;
+		return backgroundUri;
 	}
 
 	public void setBackgroundUri(String backgroundUri) {
@@ -142,7 +142,7 @@ public class UserShareTask implements Serializable {
 	}
 
 	public Integer getClockType() {
-		return this.clockType;
+		return clockType;
 	}
 
 	public void setClockType(Integer clockType) {
@@ -150,147 +150,11 @@ public class UserShareTask implements Serializable {
 	}
 
 	public Long getCreateTime() {
-		return this.createTime;
+		return createTime;
 	}
 
 	public void setCreateTime(Long createTime) {
 		this.createTime = createTime;
-	}
-
-	public String getDes() {
-		return this.des;
-	}
-
-	public void setDes(String des) {
-		this.des = des;
-	}
-
-	public String getGpsAddress() {
-		return this.gpsAddress;
-	}
-
-	public void setGpsAddress(String gpsAddress) {
-		this.gpsAddress = gpsAddress;
-	}
-
-	public String getMusic() {
-		return this.music;
-	}
-
-	public void setMusic(String music) {
-		this.music = music;
-	}
-
-	public String getNotice() {
-		return this.notice;
-	}
-
-	public void setNotice(String notice) {
-		this.notice = notice;
-	}
-
-	public Integer getPlayMinute() {
-		return this.playMinute;
-	}
-
-	public void setPlayMinute(Integer playMinute) {
-		this.playMinute = playMinute;
-	}
-
-	public String getPlayMusic() {
-		return this.playMusic;
-	}
-
-	public void setPlayMusic(String playMusic) {
-		this.playMusic = playMusic;
-	}
-
-	public Integer getPlayType() {
-		return this.playType;
-	}
-
-	public void setPlayType(Integer playType) {
-		this.playType = playType;
-	}
-
-	public String getRepeatInfo() {
-		return this.repeatInfo;
-	}
-
-	public void setRepeatInfo(String repeatInfo) {
-		this.repeatInfo = repeatInfo;
-	}
-
-	public Integer getRepeatType() {
-		return this.repeatType;
-	}
-
-	public void setRepeatType(Integer repeatType) {
-		this.repeatType = repeatType;
-	}
-
-	public Boolean isDel() {
-		return del;
-	}
-
-	public void setDel(Boolean del) {
-		this.del = del;
-	}
-
-	public Boolean isOpen() {
-		return open;
-	}
-
-	public void setOpen(Boolean open) {
-		this.open = open;
-	}
-
-	public Boolean isShake() {
-		return shake;
-	}
-
-	public void setShake(Boolean shake) {
-		this.shake = shake;
-	}
-
-	public Boolean isSkip() {
-		return skip;
-	}
-
-	public void setSkip(Boolean skip) {
-		this.skip = skip;
-	}
-
-	public String getSurpervise() {
-		return this.surpervise;
-	}
-
-	public void setSurpervise(String surpervise) {
-		this.surpervise = surpervise;
-	}
-
-	public Long getSyncTime() {
-		return this.syncTime;
-	}
-
-	public void setSyncTime(Long syncTime) {
-		this.syncTime = syncTime;
-	}
-
-	public String getTitle() {
-		return this.title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Long getUptTime() {
-		return this.uptTime;
-	}
-
-	public void setUptTime(Long uptTime) {
-		this.uptTime = uptTime;
 	}
 
 	public Long getSetTime() {
@@ -307,6 +171,142 @@ public class UserShareTask implements Serializable {
 
 	public void setAdvanceOrder(Integer advanceOrder) {
 		this.advanceOrder = advanceOrder;
+	}
+
+	public String getDes() {
+		return des;
+	}
+
+	public void setDes(String des) {
+		this.des = des;
+	}
+
+	public String getGpsAddress() {
+		return gpsAddress;
+	}
+
+	public void setGpsAddress(String gpsAddress) {
+		this.gpsAddress = gpsAddress;
+	}
+
+	public Boolean getDel() {
+		return del;
+	}
+
+	public void setDel(Boolean del) {
+		this.del = del;
+	}
+
+	public Boolean getOpen() {
+		return open;
+	}
+
+	public void setOpen(Boolean open) {
+		this.open = open;
+	}
+
+	public String getMusic() {
+		return music;
+	}
+
+	public void setMusic(String music) {
+		this.music = music;
+	}
+
+	public String getNotice() {
+		return notice;
+	}
+
+	public void setNotice(String notice) {
+		this.notice = notice;
+	}
+
+	public Integer getPlayMinute() {
+		return playMinute;
+	}
+
+	public void setPlayMinute(Integer playMinute) {
+		this.playMinute = playMinute;
+	}
+
+	public String getPlayMusic() {
+		return playMusic;
+	}
+
+	public void setPlayMusic(String playMusic) {
+		this.playMusic = playMusic;
+	}
+
+	public Integer getPlayType() {
+		return playType;
+	}
+
+	public void setPlayType(Integer playType) {
+		this.playType = playType;
+	}
+
+	public String getRepeatInfo() {
+		return repeatInfo;
+	}
+
+	public void setRepeatInfo(String repeatInfo) {
+		this.repeatInfo = repeatInfo;
+	}
+
+	public Integer getRepeatType() {
+		return repeatType;
+	}
+
+	public void setRepeatType(Integer repeatType) {
+		this.repeatType = repeatType;
+	}
+
+	public Boolean getShake() {
+		return shake;
+	}
+
+	public void setShake(Boolean shake) {
+		this.shake = shake;
+	}
+
+	public Boolean getSkip() {
+		return skip;
+	}
+
+	public void setSkip(Boolean skip) {
+		this.skip = skip;
+	}
+
+	public String getSurpervise() {
+		return surpervise;
+	}
+
+	public void setSurpervise(String surpervise) {
+		this.surpervise = surpervise;
+	}
+
+	public Long getSyncTime() {
+		return syncTime;
+	}
+
+	public void setSyncTime(Long syncTime) {
+		this.syncTime = syncTime;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Long getUptTime() {
+		return uptTime;
+	}
+
+	public void setUptTime(Long uptTime) {
+		this.uptTime = uptTime;
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
@@ -87,7 +88,11 @@ public class UserShareAlarm implements Serializable {
 	@Column(name="USER_UUID", length=100)
 	private String userUuid;
 	
-	@OneToMany(cascade={CascadeType.ALL})
+	private Boolean allowChange;
+    private String owerUuid;
+    private String owerUserUuid;
+	
+	@OneToMany(cascade={CascadeType.ALL},fetch = FetchType.EAGER)
 	@JoinColumn(name="ALARM_UUID")
 	private List<UserShareTask> tasks;
 
@@ -95,7 +100,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public String getUuid() {
-		return this.uuid;
+		return uuid;
 	}
 
 	public void setUuid(String uuid) {
@@ -103,7 +108,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public Long getAlarmTime() {
-		return this.alarmTime;
+		return alarmTime;
 	}
 
 	public void setAlarmTime(Long alarmTime) {
@@ -119,7 +124,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public Long getCreateTime() {
-		return this.createTime;
+		return createTime;
 	}
 
 	public void setCreateTime(Long createTime) {
@@ -127,7 +132,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public String getDes() {
-		return this.des;
+		return des;
 	}
 
 	public void setDes(String des) {
@@ -135,7 +140,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public Long getEndTime() {
-		return this.endTime;
+		return endTime;
 	}
 
 	public void setEndTime(Long endTime) {
@@ -143,15 +148,14 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public Integer getFroms() {
-		return this.froms;
+		return froms;
 	}
 
 	public void setFroms(Integer froms) {
 		this.froms = froms;
 	}
 
-
-	public Boolean isDel() {
+	public Boolean getDel() {
 		return del;
 	}
 
@@ -159,7 +163,7 @@ public class UserShareAlarm implements Serializable {
 		this.del = del;
 	}
 
-	public Boolean isEndJoin() {
+	public Boolean getEndJoin() {
 		return endJoin;
 	}
 
@@ -167,7 +171,7 @@ public class UserShareAlarm implements Serializable {
 		this.endJoin = endJoin;
 	}
 
-	public Boolean isOpen() {
+	public Boolean getOpen() {
 		return open;
 	}
 
@@ -176,7 +180,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public Long getJoinNum() {
-		return this.joinNum;
+		return joinNum;
 	}
 
 	public void setJoinNum(Long joinNum) {
@@ -184,7 +188,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public String getLinkman() {
-		return this.linkman;
+		return linkman;
 	}
 
 	public void setLinkman(String linkman) {
@@ -192,7 +196,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public Long getMaxJoinNum() {
-		return this.maxJoinNum;
+		return maxJoinNum;
 	}
 
 	public void setMaxJoinNum(Long maxJoinNum) {
@@ -200,7 +204,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public String getScope() {
-		return this.scope;
+		return scope;
 	}
 
 	public void setScope(String scope) {
@@ -208,7 +212,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public String getShare() {
-		return this.share;
+		return share;
 	}
 
 	public void setShare(String share) {
@@ -216,7 +220,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public Long getSyncTime() {
-		return this.syncTime;
+		return syncTime;
 	}
 
 	public void setSyncTime(Long syncTime) {
@@ -224,7 +228,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public String getTaskUuid() {
-		return this.taskUuid;
+		return taskUuid;
 	}
 
 	public void setTaskUuid(String taskUuid) {
@@ -232,7 +236,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public String getTitle() {
-		return this.title;
+		return title;
 	}
 
 	public void setTitle(String title) {
@@ -240,7 +244,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public Integer getType() {
-		return this.type;
+		return type;
 	}
 
 	public void setType(Integer type) {
@@ -248,7 +252,7 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public Long getUptTime() {
-		return this.uptTime;
+		return uptTime;
 	}
 
 	public void setUptTime(Long uptTime) {
@@ -256,11 +260,35 @@ public class UserShareAlarm implements Serializable {
 	}
 
 	public String getUserUuid() {
-		return this.userUuid;
+		return userUuid;
 	}
 
 	public void setUserUuid(String userUuid) {
 		this.userUuid = userUuid;
+	}
+
+	public Boolean getAllowChange() {
+		return allowChange;
+	}
+
+	public void setAllowChange(Boolean allowChange) {
+		this.allowChange = allowChange;
+	}
+
+	public String getOwerUuid() {
+		return owerUuid;
+	}
+
+	public void setOwerUuid(String owerUuid) {
+		this.owerUuid = owerUuid;
+	}
+
+	public String getOwerUserUuid() {
+		return owerUserUuid;
+	}
+
+	public void setOwerUserUuid(String owerUserUuid) {
+		this.owerUserUuid = owerUserUuid;
 	}
 
 	public List<UserShareTask> getTasks() {

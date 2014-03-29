@@ -30,15 +30,23 @@ public class UserLocalTaskImg implements Serializable {
 	}
 
 	public String getUuid() {
-		return this.uuid;
+		return uuid;
 	}
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
 
+	public Boolean getDel() {
+		return del;
+	}
+
+	public void setDel(Boolean del) {
+		this.del = del;
+	}
+
 	public String getTaskUuid() {
-		return this.taskUuid;
+		return taskUuid;
 	}
 
 	public void setTaskUuid(String taskUuid) {
@@ -46,19 +54,11 @@ public class UserLocalTaskImg implements Serializable {
 	}
 
 	public String getUri() {
-		return this.uri;
+		return uri;
 	}
 
 	public void setUri(String uri) {
 		this.uri = uri;
-	}
-
-	public Boolean isDel() {
-		return del;
-	}
-
-	public void setDel(Boolean del) {
-		this.del = del;
 	}
 
 }

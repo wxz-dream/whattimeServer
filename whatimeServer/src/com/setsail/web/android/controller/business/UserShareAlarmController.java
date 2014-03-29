@@ -108,10 +108,14 @@ public class UserShareAlarmController {
 	 * @param sync_time
 	 * @return
 	 */
-	public String alrmShareSync(String userUuid,String mime,long sync_time){
+	@RequestMapping(value = "alarmShareSync", method = RequestMethod.POST)
+	@ResponseBody
+	public String alarmShareSync(String userUuid,String mime,long syncTime){
 		
-		
-		return "";
+		logger.info(" into UserShareAlarmController.alarmShareSync");
+		SystemState systemState = userShareAlarmService.alarmShareSync(userUuid,syncTime);
+		logger.info(" out UserShareAlarmController.alarmShareSync");
+		return JSON.toJSONString(systemState);
 	}
 
 }

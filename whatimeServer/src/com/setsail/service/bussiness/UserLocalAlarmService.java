@@ -28,5 +28,12 @@ public interface UserLocalAlarmService {
 	 * @return
 	 */
 	public SystemState alarmLocalGetLastSyncTime(String userUuid);
+	/**
+	 * 获取同步信息
+	 * @param userUuid
+	 * @param sync_time
+	 * @return
+	 */
+	public SystemState alrmLocalSync(String userUuid, long syncTime);
 
 }

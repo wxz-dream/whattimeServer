@@ -90,7 +90,7 @@ public class UserLocalTask implements Serializable {
 	}
 
 	public String getUuid() {
-		return this.uuid;
+		return uuid;
 	}
 
 	public void setUuid(String uuid) {
@@ -98,7 +98,7 @@ public class UserLocalTask implements Serializable {
 	}
 
 	public Long getAlarmTime() {
-		return this.alarmTime;
+		return alarmTime;
 	}
 
 	public void setAlarmTime(Long alarmTime) {
@@ -114,7 +114,7 @@ public class UserLocalTask implements Serializable {
 	}
 
 	public String getBackgroundUri() {
-		return this.backgroundUri;
+		return backgroundUri;
 	}
 
 	public void setBackgroundUri(String backgroundUri) {
@@ -122,7 +122,7 @@ public class UserLocalTask implements Serializable {
 	}
 
 	public Integer getClockType() {
-		return this.clockType;
+		return clockType;
 	}
 
 	public void setClockType(Integer clockType) {
@@ -130,99 +130,11 @@ public class UserLocalTask implements Serializable {
 	}
 
 	public Long getCreateTime() {
-		return this.createTime;
+		return createTime;
 	}
 
 	public void setCreateTime(Long createTime) {
 		this.createTime = createTime;
-	}
-
-	public String getDes() {
-		return this.des;
-	}
-
-	public void setDes(String des) {
-		this.des = des;
-	}
-
-	public String getMusic() {
-		return this.music;
-	}
-
-	public void setMusic(String music) {
-		this.music = music;
-	}
-
-	public Integer getPlayMinute() {
-		return this.playMinute;
-	}
-
-	public void setPlayMinute(Integer playMinute) {
-		this.playMinute = playMinute;
-	}
-
-	public String getPlayMusic() {
-		return this.playMusic;
-	}
-
-	public void setPlayMusic(String playMusic) {
-		this.playMusic = playMusic;
-	}
-
-	public Integer getPlayType() {
-		return this.playType;
-	}
-
-	public void setPlayType(Integer playType) {
-		this.playType = playType;
-	}
-
-	public String getRepeatInfo() {
-		return this.repeatInfo;
-	}
-
-	public void setRepeatInfo(String repeatInfo) {
-		this.repeatInfo = repeatInfo;
-	}
-
-	public Integer getRepeatType() {
-		return this.repeatType;
-	}
-
-	public void setRepeatType(Integer repeatType) {
-		this.repeatType = repeatType;
-	}
-
-	public String getSurpervise() {
-		return this.surpervise;
-	}
-
-	public void setSurpervise(String surpervise) {
-		this.surpervise = surpervise;
-	}
-
-	public Long getSyncTime() {
-		return this.syncTime;
-	}
-
-	public void setSyncTime(Long syncTime) {
-		this.syncTime = syncTime;
-	}
-
-	public String getTitle() {
-		return this.title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Long getUptTime() {
-		return this.uptTime;
-	}
-
-	public void setUptTime(Long uptTime) {
-		this.uptTime = uptTime;
 	}
 
 	public Long getSetTime() {
@@ -241,7 +153,15 @@ public class UserLocalTask implements Serializable {
 		this.advanceOrder = advanceOrder;
 	}
 
-	public Boolean isDel() {
+	public String getDes() {
+		return des;
+	}
+
+	public void setDes(String des) {
+		this.des = des;
+	}
+
+	public Boolean getDel() {
 		return del;
 	}
 
@@ -249,7 +169,7 @@ public class UserLocalTask implements Serializable {
 		this.del = del;
 	}
 
-	public Boolean isOpen() {
+	public Boolean getOpen() {
 		return open;
 	}
 
@@ -257,7 +177,55 @@ public class UserLocalTask implements Serializable {
 		this.open = open;
 	}
 
-	public Boolean isShake() {
+	public String getMusic() {
+		return music;
+	}
+
+	public void setMusic(String music) {
+		this.music = music;
+	}
+
+	public Integer getPlayMinute() {
+		return playMinute;
+	}
+
+	public void setPlayMinute(Integer playMinute) {
+		this.playMinute = playMinute;
+	}
+
+	public String getPlayMusic() {
+		return playMusic;
+	}
+
+	public void setPlayMusic(String playMusic) {
+		this.playMusic = playMusic;
+	}
+
+	public Integer getPlayType() {
+		return playType;
+	}
+
+	public void setPlayType(Integer playType) {
+		this.playType = playType;
+	}
+
+	public String getRepeatInfo() {
+		return repeatInfo;
+	}
+
+	public void setRepeatInfo(String repeatInfo) {
+		this.repeatInfo = repeatInfo;
+	}
+
+	public Integer getRepeatType() {
+		return repeatType;
+	}
+
+	public void setRepeatType(Integer repeatType) {
+		this.repeatType = repeatType;
+	}
+
+	public Boolean getShake() {
 		return shake;
 	}
 
@@ -265,12 +233,44 @@ public class UserLocalTask implements Serializable {
 		this.shake = shake;
 	}
 
-	public Boolean isSkip() {
+	public Boolean getSkip() {
 		return skip;
 	}
 
 	public void setSkip(Boolean skip) {
 		this.skip = skip;
+	}
+
+	public String getSurpervise() {
+		return surpervise;
+	}
+
+	public void setSurpervise(String surpervise) {
+		this.surpervise = surpervise;
+	}
+
+	public Long getSyncTime() {
+		return syncTime;
+	}
+
+	public void setSyncTime(Long syncTime) {
+		this.syncTime = syncTime;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Long getUptTime() {
+		return uptTime;
+	}
+
+	public void setUptTime(Long uptTime) {
+		this.uptTime = uptTime;
 	}
 
 }

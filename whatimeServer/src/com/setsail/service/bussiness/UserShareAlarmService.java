@@ -28,5 +28,12 @@ public interface UserShareAlarmService {
 	 * @return
 	 */
 	public SystemState alarmShareGetLastSyncTime(String userUuid);
+	/**
+	 * 获取同步信息
+	 * @param userUuid
+	 * @param syncTime
+	 * @return
+	 */
+	public SystemState alarmShareSync(String userUuid, long syncTime);
 
 }
