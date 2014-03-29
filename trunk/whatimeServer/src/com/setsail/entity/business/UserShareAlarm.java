@@ -30,8 +30,8 @@ public class UserShareAlarm implements Serializable {
 	@Column(name="ALARM_TIME")
 	private Long alarmTime;
 
-	@Column(name="CATEID", length=100)
-	private Long cateId;
+	@Column(name="CATE_ID", length=100)
+	private Integer cateId;
 
 	
 	@Column(name="CREATE_TIME")
@@ -115,11 +115,11 @@ public class UserShareAlarm implements Serializable {
 		this.alarmTime = alarmTime;
 	}
 
-	public Long getCateId() {
+	public Integer getCateId() {
 		return cateId;
 	}
 
-	public void setCateId(Long cateId) {
+	public void setCateId(Integer cateId) {
 		this.cateId = cateId;
 	}
 

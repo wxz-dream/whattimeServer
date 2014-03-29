@@ -19,7 +19,7 @@ import com.setsail.service.bussiness.UserShareAlarmService;
  * @date 2014-03-15
  */
 @Controller
-@RequestMapping("/android/userShareAlarm/")
+@RequestMapping({"/android/userShareAlarm/"})
 public class UserShareAlarmController {
 	
 	private Logger logger = Logger.getLogger(UserShareAlarmController.class);
