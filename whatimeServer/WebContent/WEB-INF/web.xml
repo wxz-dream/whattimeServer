@@ -14,12 +14,17 @@
 		<param-value>classpath*:/spring-context.xml</param-value>
 	</context-param>
 	
-	<listener>
-		<listener-class>com.setsail.web.listener.MemoryListener</listener-class>
-	</listener>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>com.setsail.web.listener.MemoryListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 
 	<servlet>

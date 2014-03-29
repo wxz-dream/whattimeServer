@@ -36,4 +36,26 @@ public interface UserShareAlarmService {
 	 */
 	public SystemState alarmShareSync(String userUuid, long syncTime);
 
+	/**
+	 * 获取商城提醒集合
+	 * @param userUuid
+	 * @param scope
+	 * @param cateId
+	 * @param startTime
+	 * @param endTime
+	 * @param page
+	 * @return
+	 */
+	public SystemState alarmShareFindByPage(String userUuid, String scope,
+			Integer cateId, Long startTime, Long endTime, Integer page);
+
+	/**
+	 * 获取某人提醒集合
+	 * @param manUuid
+	 * @param startTime
+	 * @param endTime
+	 * @param page
+	 * @return
+	 */
+	public SystemState alarmShareFindByPage(String manUuid, Long startTime, Long endTime, Integer page);
 }
