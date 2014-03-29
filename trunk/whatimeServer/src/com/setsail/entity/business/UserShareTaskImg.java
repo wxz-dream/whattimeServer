@@ -30,14 +30,14 @@ public class UserShareTaskImg implements Serializable {
 	}
 
 	public String getUuid() {
-		return this.uuid;
+		return uuid;
 	}
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
 
-	public Boolean isDel() {
+	public Boolean getDel() {
 		return del;
 	}
 
@@ -46,7 +46,7 @@ public class UserShareTaskImg implements Serializable {
 	}
 
 	public String getTaskUuid() {
-		return this.taskUuid;
+		return taskUuid;
 	}
 
 	public void setTaskUuid(String taskUuid) {
@@ -54,7 +54,7 @@ public class UserShareTaskImg implements Serializable {
 	}
 
 	public String getUri() {
-		return this.uri;
+		return uri;
 	}
 
 	public void setUri(String uri) {

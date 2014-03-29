@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
@@ -63,7 +64,7 @@ public class UserLocalAlarm implements Serializable {
 	@Column(name = "USER_UUID", length = 100)
 	private String userUuid;
 
-	@OneToMany(cascade = { CascadeType.ALL })
+	@OneToMany(cascade = { CascadeType.ALL },fetch = FetchType.EAGER)
 	@JoinColumn(name = "ALARM_UUID")
 	private List<UserLocalTask> tasks;
 
@@ -71,7 +72,7 @@ public class UserLocalAlarm implements Serializable {
 	}
 
 	public String getUuid() {
-		return this.uuid;
+		return uuid;
 	}
 
 	public void setUuid(String uuid) {
@@ -79,7 +80,7 @@ public class UserLocalAlarm implements Serializable {
 	}
 
 	public Long getAlarmTime() {
-		return this.alarmTime;
+		return alarmTime;
 	}
 
 	public void setAlarmTime(Long alarmTime) {
@@ -87,7 +88,7 @@ public class UserLocalAlarm implements Serializable {
 	}
 
 	public Long getCreateTime() {
-		return this.createTime;
+		return createTime;
 	}
 
 	public void setCreateTime(Long createTime) {
@@ -95,7 +96,7 @@ public class UserLocalAlarm implements Serializable {
 	}
 
 	public String getDes() {
-		return this.des;
+		return des;
 	}
 
 	public void setDes(String des) {
@@ -103,70 +104,14 @@ public class UserLocalAlarm implements Serializable {
 	}
 
 	public Integer getFroms() {
-		return this.froms;
+		return froms;
 	}
 
 	public void setFroms(Integer froms) {
 		this.froms = froms;
 	}
 
-	public String getShare() {
-		return this.share;
-	}
-
-	public void setShare(String share) {
-		this.share = share;
-	}
-
-	public Long getSyncTime() {
-		return this.syncTime;
-	}
-
-	public void setSyncTime(Long syncTime) {
-		this.syncTime = syncTime;
-	}
-
-	public String getTaskUuid() {
-		return this.taskUuid;
-	}
-
-	public void setTaskUuid(String taskUuid) {
-		this.taskUuid = taskUuid;
-	}
-
-	public String getTitle() {
-		return this.title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Integer getType() {
-		return this.type;
-	}
-
-	public void setType(Integer type) {
-		this.type = type;
-	}
-
-	public Long getUptTime() {
-		return this.uptTime;
-	}
-
-	public void setUptTime(Long uptTime) {
-		this.uptTime = uptTime;
-	}
-
-	public String getUserUuid() {
-		return this.userUuid;
-	}
-
-	public void setUserUuid(String userUuid) {
-		this.userUuid = userUuid;
-	}
-
-	public Boolean isDel() {
+	public Boolean getDel() {
 		return del;
 	}
 
@@ -174,12 +119,68 @@ public class UserLocalAlarm implements Serializable {
 		this.del = del;
 	}
 
-	public Boolean isOpen() {
+	public Boolean getOpen() {
 		return open;
 	}
 
 	public void setOpen(Boolean open) {
 		this.open = open;
+	}
+
+	public String getShare() {
+		return share;
+	}
+
+	public void setShare(String share) {
+		this.share = share;
+	}
+
+	public Long getSyncTime() {
+		return syncTime;
+	}
+
+	public void setSyncTime(Long syncTime) {
+		this.syncTime = syncTime;
+	}
+
+	public String getTaskUuid() {
+		return taskUuid;
+	}
+
+	public void setTaskUuid(String taskUuid) {
+		this.taskUuid = taskUuid;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public Long getUptTime() {
+		return uptTime;
+	}
+
+	public void setUptTime(Long uptTime) {
+		this.uptTime = uptTime;
+	}
+
+	public String getUserUuid() {
+		return userUuid;
+	}
+
+	public void setUserUuid(String userUuid) {
+		this.userUuid = userUuid;
 	}
 
 	public List<UserLocalTask> getTasks() {

@@ -22,4 +22,12 @@ public interface UserLocalAlarmRepository extends PagingAndSortingRepository<Use
 	 * @return
 	 */
 	List<UserLocalAlarm> findUserLocalAlarmByUserUuid(String userUuid);
+	/**
+	 * 根据同步时间获取集合
+	 * @param userUuid
+	 * @param sync_time
+	 * @return
+	 */
+	@Query(" select ua from UserLocalAlarm ua where ua.syncTime > ?2 and ua.userUuid = ?1  ")
+	List<UserLocalAlarm> findAlarmLocalLastBySync(String userUuid,long syncTime);
 }

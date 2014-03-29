@@ -1,12 +1,14 @@
 package com.setsail.service.bussiness.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.setsail.entity.business.UserLocalAlarm;
 import com.setsail.entity.business.UserShareAlarm;
 import com.setsail.entity.response.StateEnum;
 import com.setsail.entity.response.SystemState;
@@ -44,7 +46,19 @@ public class UserShareAlarmServiceImpl implements UserShareAlarmService {
 	public SystemState alarmShareGetLastSyncTime(String userUuid) {
 		UserShareAlarm userShare = userShareAlarmRepository.findAlarmShareLastByUserUuid(userUuid);
 		SystemState systemState = new SystemState(StateEnum.STATE_SUCCESS);
-		systemState.setResInfo(userShare);
+		if(userShare!=null)
+		{
+			systemState.setResInfo("{syncTime:"+userShare.getSyncTime()+"}");
+		}
+		return systemState;
+	}
+
+
+	@Override
+	public SystemState alarmShareSync(String userUuid, long syncTime) {
+		List<UserShareAlarm> userLocals = userShareAlarmRepository.findAlarmShareLastBySync(userUuid,syncTime);
+		SystemState systemState = new SystemState(StateEnum.STATE_SUCCESS);
+		systemState.setResInfo(userLocals);
 		return systemState;
 	}
 	

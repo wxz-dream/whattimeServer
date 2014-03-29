@@ -42,7 +42,7 @@ public class AlarmCategory implements Serializable {
 		this.des = des;
 	}
 
-	public Boolean isDel() {
+	public Boolean getDel() {
 		return del;
 	}
 

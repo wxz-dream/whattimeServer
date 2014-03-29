@@ -82,13 +82,13 @@ public class User implements Serializable {
 
 	public User() {
 	}
-
+	
 	public User(String uuid) {
 		this.uuid = uuid;
 	}
 
 	public String getUuid() {
-		return this.uuid;
+		return uuid;
 	}
 
 	public void setUuid(String uuid) {
@@ -96,150 +96,14 @@ public class User implements Serializable {
 	}
 
 	public Integer getAuthType() {
-		return this.authType;
+		return authType;
 	}
 
 	public void setAuthType(Integer authType) {
 		this.authType = authType;
 	}
 
-	public String getCity() {
-		return this.city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public Long getCreateTime() {
-		return this.createTime;
-	}
-
-	public void setCreateTime(Long createTime) {
-		this.createTime = createTime;
-	}
-
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getIdentityCard() {
-		return this.identityCard;
-	}
-
-	public void setIdentityCard(String identityCard) {
-		this.identityCard = identityCard;
-	}
-
-	public String getLevelUuid() {
-		return this.levelUuid;
-	}
-
-	public void setLevelUuid(String levelUuid) {
-		this.levelUuid = levelUuid;
-	}
-
-	public Long getLoginTime() {
-		return this.loginTime;
-	}
-
-	public void setLoginTime(Long loginTime) {
-		this.loginTime = loginTime;
-	}
-
-	public String getMime() {
-		return this.mime;
-	}
-
-	public void setMime(String mime) {
-		this.mime = mime;
-	}
-
-	public String getNickName() {
-		return this.nickName;
-	}
-
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
-
-	public String getPassword() {
-		return this.password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getPhoneInfo() {
-		return this.phoneInfo;
-	}
-
-	public void setPhoneInfo(String phoneInfo) {
-		this.phoneInfo = phoneInfo;
-	}
-
-	public String getQq() {
-		return this.qq;
-	}
-
-	public void setQq(String qq) {
-		this.qq = qq;
-	}
-
-	public String getRealName() {
-		return this.realName;
-	}
-
-	public void setRealName(String realName) {
-		this.realName = realName;
-	}
-
-	public Integer getSex() {
-		return this.sex;
-	}
-
-	public void setSex(Integer sex) {
-		this.sex = sex;
-	}
-
-	public String getTelphone() {
-		return this.telphone;
-	}
-
-	public void setTelphone(String telphone) {
-		this.telphone = telphone;
-	}
-
-	public Long getUptTime() {
-		return this.uptTime;
-	}
-
-	public void setUptTime(Long uptTime) {
-		this.uptTime = uptTime;
-	}
-
-	public String getUserName() {
-		return this.userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getUserphotoUri() {
-		return this.userphotoUri;
-	}
-
-	public void setUserphotoUri(String userphotoUri) {
-		this.userphotoUri = userphotoUri;
-	}
-
-	public Boolean isAvailable() {
+	public Boolean getAvailable() {
 		return available;
 	}
 
@@ -247,12 +111,148 @@ public class User implements Serializable {
 		this.available = available;
 	}
 
-	public Boolean isDel() {
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public Long getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Long createTime) {
+		this.createTime = createTime;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getIdentityCard() {
+		return identityCard;
+	}
+
+	public void setIdentityCard(String identityCard) {
+		this.identityCard = identityCard;
+	}
+
+	public Boolean getDel() {
 		return del;
 	}
 
 	public void setDel(Boolean del) {
 		this.del = del;
+	}
+
+	public String getLevelUuid() {
+		return levelUuid;
+	}
+
+	public void setLevelUuid(String levelUuid) {
+		this.levelUuid = levelUuid;
+	}
+
+	public Long getLoginTime() {
+		return loginTime;
+	}
+
+	public void setLoginTime(Long loginTime) {
+		this.loginTime = loginTime;
+	}
+
+	public String getMime() {
+		return mime;
+	}
+
+	public void setMime(String mime) {
+		this.mime = mime;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPhoneInfo() {
+		return phoneInfo;
+	}
+
+	public void setPhoneInfo(String phoneInfo) {
+		this.phoneInfo = phoneInfo;
+	}
+
+	public String getQq() {
+		return qq;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+
+	public Integer getSex() {
+		return sex;
+	}
+
+	public void setSex(Integer sex) {
+		this.sex = sex;
+	}
+
+	public String getTelphone() {
+		return telphone;
+	}
+
+	public void setTelphone(String telphone) {
+		this.telphone = telphone;
+	}
+
+	public Long getUptTime() {
+		return uptTime;
+	}
+
+	public void setUptTime(Long uptTime) {
+		this.uptTime = uptTime;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getUserphotoUri() {
+		return userphotoUri;
+	}
+
+	public void setUserphotoUri(String userphotoUri) {
+		this.userphotoUri = userphotoUri;
 	}
 
 }

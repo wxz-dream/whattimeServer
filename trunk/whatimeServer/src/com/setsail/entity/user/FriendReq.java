@@ -45,7 +45,7 @@ public class FriendReq implements Serializable {
 	}
 
 	public String getUuid() {
-		return this.uuid;
+		return uuid;
 	}
 
 	public void setUuid(String uuid) {
@@ -53,7 +53,7 @@ public class FriendReq implements Serializable {
 	}
 
 	public Integer getAccess() {
-		return this.access;
+		return access;
 	}
 
 	public void setAccess(Integer access) {
@@ -61,7 +61,7 @@ public class FriendReq implements Serializable {
 	}
 
 	public String getFriendReqUuid() {
-		return this.friendReqUuid;
+		return friendReqUuid;
 	}
 
 	public void setFriendReqUuid(String friendReqUuid) {
@@ -69,7 +69,7 @@ public class FriendReq implements Serializable {
 	}
 
 	public String getNickName() {
-		return this.nickName;
+		return nickName;
 	}
 
 	public void setNickName(String nickName) {
@@ -77,7 +77,7 @@ public class FriendReq implements Serializable {
 	}
 
 	public String getRemark() {
-		return this.remark;
+		return remark;
 	}
 
 	public void setRemark(String remark) {
@@ -85,7 +85,7 @@ public class FriendReq implements Serializable {
 	}
 
 	public Long getRequestTime() {
-		return this.requestTime;
+		return requestTime;
 	}
 
 	public void setRequestTime(Long requestTime) {
@@ -93,7 +93,7 @@ public class FriendReq implements Serializable {
 	}
 
 	public Long getUptTime() {
-		return this.uptTime;
+		return uptTime;
 	}
 
 	public void setUptTime(Long uptTime) {
@@ -101,7 +101,7 @@ public class FriendReq implements Serializable {
 	}
 
 	public String getUserUuid() {
-		return this.userUuid;
+		return userUuid;
 	}
 
 	public void setUserUuid(String userUuid) {
@@ -109,7 +109,7 @@ public class FriendReq implements Serializable {
 	}
 
 	public String getUserphotoUri() {
-		return this.userphotoUri;
+		return userphotoUri;
 	}
 
 	public void setUserphotoUri(String userphotoUri) {

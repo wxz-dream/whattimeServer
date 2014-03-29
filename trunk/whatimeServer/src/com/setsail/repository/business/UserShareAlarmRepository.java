@@ -23,6 +23,14 @@ public interface UserShareAlarmRepository extends PagingAndSortingRepository<Use
 	 * @return
 	 */
 	List<UserShareAlarm> findUserShareAlarmByUserUuid(String userUuid);
+	/**
+	 * 根据同步时间获取集合
+	 * @param userUuid
+	 * @param sync_time
+	 * @return
+	 */
+	@Query(" select ua from UserShareAlarm ua where ua.syncTime > ?2 and ua.userUuid = ?1  ")
+	List<UserShareAlarm> findAlarmShareLastBySync(String userUuid, long syncTime);
 	
 	
 }
