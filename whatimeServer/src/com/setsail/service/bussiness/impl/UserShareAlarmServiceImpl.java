@@ -99,7 +99,7 @@ public class UserShareAlarmServiceImpl implements UserShareAlarmService {
 		List<UserShareAlarm> userShareAlarms;
 		
 		userShareAlarms = userShareAlarmRepository.
-				findByManUuidAndAlarmTimeAfterAndAlarmTimeBeforeOrderByAlarmTimeDesc(manUuid, 
+				findByUserUuidAndAlarmTimeAfterAndAlarmTimeBeforeOrderByAlarmTimeDesc(manUuid, 
 						startTime, endTime, pageRequest);
 		systemState.setResInfo(userShareAlarms);
 		return systemState;

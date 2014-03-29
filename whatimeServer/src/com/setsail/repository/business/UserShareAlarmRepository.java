@@ -61,6 +61,6 @@ public interface UserShareAlarmRepository extends PagingAndSortingRepository<Use
 	/**
 	 *　描述：根据该提醒的开始时间，截止时间，第几页获取某人的提醒列表。默认一页20个。按提醒时间（AlarmTime）排序。
 	 */
-	List<UserShareAlarm> findByManUuidAndAlarmTimeAfterAndAlarmTimeBeforeOrderByAlarmTimeDesc(
+	List<UserShareAlarm> findByUserUuidAndAlarmTimeAfterAndAlarmTimeBeforeOrderByAlarmTimeDesc(
 			String manUuid, Long startTime, Long endTime, Pageable pageable);
 }
