@@ -57,7 +57,10 @@ public class UserFilter implements Filter {
 	private String[] controllerPackage = new String[] {
 			"com.setsail.web.android.controller.user.UserController",
 			"com.setsail.web.android.controller.business.UserShareAlarmController",
-			"com.setsail.web.android.controller.business.UserLocalAlarmController" };
+			"com.setsail.web.android.controller.business.UserLocalAlarmController",
+			"com.setsail.web.android.controller.business.CategoryController",
+			"com.setsail.web.android.controller.business.MarketController",
+			};
 	private String MIME = "MIME";
 	private String UUID = "userUuid";
 

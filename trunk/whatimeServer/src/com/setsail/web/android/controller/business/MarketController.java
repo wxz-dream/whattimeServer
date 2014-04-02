@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.setsail.entity.response.SystemState;
 import com.setsail.service.bussiness.UserShareAlarmService;
+import com.setsail.web.android.annotation.Auth;
 
 @Controller
 @RequestMapping("/android/market/")
@@ -27,6 +28,7 @@ public class MarketController {
 	 * @param page
 	 * @return
 	 */
+	@Auth
 	@RequestMapping(value = "getMarketAlarm")
 	@ResponseBody
 	public String getMarketAlarm(String userUuid, String mime, Integer cateId, 
@@ -46,6 +48,7 @@ public class MarketController {
 	 * @param page
 	 * @return
 	 */
+	@Auth
 	@RequestMapping(value = "getManAlarm")
 	@ResponseBody
 	public String getManAlarm(String userUuid, String manUuid, Long startTime, Long endTime, Integer page){

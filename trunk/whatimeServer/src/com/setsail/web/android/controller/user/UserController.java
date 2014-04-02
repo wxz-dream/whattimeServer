@@ -81,12 +81,21 @@ public class UserController {
 		return JSON.toJSONString(us);
 
 	}
-	
-	@RequestMapping(value = "getUser", method = RequestMethod.POST)
+	@Auth
+	@RequestMapping(value = "getUserByUuid", method = RequestMethod.POST)
 	@ResponseBody
-	public String getUser(String userUuid, String mime,String uuid) {
+	public String getUserByUuid(String userUuid) {
 		
-		SystemState us = userService.findUserByUuid(uuid);
+		SystemState us = userService.findUserByUuid(userUuid);
+		
+		return JSON.toJSONString(us);
+	}
+	@Auth
+	@RequestMapping(value = "getUserByUserName", method = RequestMethod.POST)
+	@ResponseBody
+	public String getUserByUserName(String userName) {
+		
+		SystemState us = userService.findUserByUserName(userName);
 		
 		return JSON.toJSONString(us);
 
