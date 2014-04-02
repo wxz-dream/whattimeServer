@@ -168,4 +168,20 @@ public class UserServiceImpl implements UserService {
 		return us;
 	}
 
+	@Override
+	public SystemState findUserByUserName(String userName) {
+		User user = userRepository.findByUserName(userName);
+		SystemState us = new SystemState();
+
+		if (user != null) {
+			user.setPassword("");
+			us.setResInfo(user);
+			us.setState(StateEnum.STATE_SUCCESS);
+			return us;
+		}
+
+		us.setState(StateEnum.STATE_FAIL);
+		return us;
+	}
+
 }

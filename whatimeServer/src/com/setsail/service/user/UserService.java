@@ -49,4 +49,6 @@ public interface UserService {
 			String oldPassword, String newPassword);
 
 	public abstract SystemState findUserByUuid(String uuid);
+
+	public abstract SystemState findUserByUserName(String userName);
 }
