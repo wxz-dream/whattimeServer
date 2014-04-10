@@ -58,4 +58,14 @@ public interface UserShareAlarmService {
 	 * @return
 	 */
 	public SystemState alarmShareFindByPage(String manUuid, Long startTime, Long endTime, Integer page);
+
+	/**
+	 * 参加提醒
+	 * <br>
+	 * 如果该提醒参加人数已满，返回错误，提示参加人数已满。否则，在参加表中注册一条该用户信息，参加人数+1，返回该提醒
+	 * @param userUuid
+	 * @param alarmUuid
+	 * @return
+	 */
+	public SystemState joinAlarm(String userUuid, String alarmUuid);
 }
