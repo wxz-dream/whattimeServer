@@ -118,4 +118,17 @@ public class UserShareAlarmController {
 		return JSON.toJSONString(systemState);
 	}
 
+	/**
+	 * 参加提醒
+	 * @param userUuid
+	 * @param mime
+	 * @param alarmUuid
+	 * @return
+	 */
+	@RequestMapping(value = "joinAlarm", method = RequestMethod.POST)
+	@ResponseBody
+	public String joinAlarm(String userUuid, String alarmUuid){
+		SystemState systemState = userShareAlarmService.joinAlarm(userUuid, alarmUuid);
+		return JSON.toJSONString(systemState);
+	}
 }

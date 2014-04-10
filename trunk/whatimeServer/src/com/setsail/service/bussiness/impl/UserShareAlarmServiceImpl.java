@@ -2,6 +2,7 @@ package com.setsail.service.bussiness.impl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -9,9 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.setsail.entity.business.JoinRelation;
 import com.setsail.entity.business.UserShareAlarm;
 import com.setsail.entity.response.StateEnum;
 import com.setsail.entity.response.SystemState;
+import com.setsail.repository.business.JoinRelationRepository;
 import com.setsail.repository.business.UserShareAlarmRepository;
 import com.setsail.service.bussiness.UserShareAlarmService;
 import com.setsail.util.SstringUtils;
@@ -21,6 +24,9 @@ public class UserShareAlarmServiceImpl implements UserShareAlarmService {
 
 	@Autowired
 	private UserShareAlarmRepository userShareAlarmRepository;
+	
+	@Autowired
+	private JoinRelationRepository joinRelationRepository;
 	
 	@Override
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
@@ -102,6 +108,37 @@ public class UserShareAlarmServiceImpl implements UserShareAlarmService {
 				findByUserUuidAndAlarmTimeAfterAndAlarmTimeBeforeOrderByAlarmTimeDesc(manUuid, 
 						startTime, endTime, pageRequest);
 		systemState.setResInfo(userShareAlarms);
+		return systemState;
+	}
+
+
+	@Override
+	public SystemState joinAlarm(String userUuid, String alarmUuid) {
+		
+		SystemState systemState = new SystemState(StateEnum.STATE_FAIL);
+		UserShareAlarm userShareAlarm = userShareAlarmRepository.findOne(alarmUuid);
+		
+		if(userShareAlarm == null) return systemState;
+		//如果该提醒参加人数已满，返回错误，提示参加人数已满
+		if((userShareAlarm.getJoinNum() == null ? 0 : userShareAlarm.getJoinNum() + 1) 
+				> userShareAlarm.getMaxJoinNum() )
+			return systemState;
+		
+		JoinRelation jr = joinRelationRepository.findByUserUuidAndAlarmUuid(userUuid, alarmUuid);
+		
+		if(jr == null){
+			userShareAlarm.setJoinNum(userShareAlarm.getJoinNum() + 1);
+			userShareAlarmRepository.save(userShareAlarm);
+			
+			jr = new JoinRelation();
+			jr.setUuid(UUID.randomUUID().toString().toLowerCase());
+			jr.setUserUuid(userUuid);
+			jr.setAlarmUuid(alarmUuid);
+			joinRelationRepository.save(jr);
+		}
+		
+		systemState.setState(StateEnum.STATE_SUCCESS);
+		systemState.setResInfo(userShareAlarm);
 		return systemState;
 	}
 	
