@@ -18,8 +18,9 @@ public class Relation implements Serializable {
 	@Column(unique=true, nullable=false, length=100)
 	private String uuid;
 
-	@Column(name="FRIEND_UUID", length=100)
-	private String friendUuid;
+	@OneToOne(cascade={CascadeType.ALL},fetch = FetchType.EAGER)
+	@JoinColumn(name="FRIEND_UUID")
+	private User friendUser;
 
 	@Column(length=50)
 	private String groups;
@@ -39,14 +40,6 @@ public class Relation implements Serializable {
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
-	}
-
-	public String getFriendUuid() {
-		return this.friendUuid;
-	}
-
-	public void setFriendUuid(String friendUuid) {
-		this.friendUuid = friendUuid;
 	}
 
 	public String getGroups() {
@@ -71,6 +64,14 @@ public class Relation implements Serializable {
 
 	public void setUserUuid(String userUuid) {
 		this.userUuid = userUuid;
+	}
+
+	public void setFriendUser(User friendUser) {
+		this.friendUser = friendUser;
+	}
+
+	public User getFriendUser() {
+		return friendUser;
 	}
 
 }
