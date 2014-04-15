@@ -32,4 +32,7 @@ public interface FriendReqRepository extends PagingAndSortingRepository<FriendRe
 	 */
 	public List<FriendReq> findFriendReqByFriendReqUuidAndAccess(
 			String userUuid, int accessUntreated);
+	
+	public List<FriendReq> findFriendReqByFriendReqUuid(
+			String userUuid);
 }
