@@ -17,7 +17,7 @@ public interface UserFriendService {
 	 * @param remark 
 	 * @return
 	 */
-	public SystemState addFriend(String userUuid,String mime,String friendUuid, String remark);
+	public SystemState addFriendReq(String userUuid,String mime,String friendUuid, String remark);
 	
 	/**
 	 * 获取好友申请列表
@@ -25,7 +25,7 @@ public interface UserFriendService {
 	 * @param mime
 	 * @return
 	 */
-	public SystemState myAddFriends(String userUuid,String mime);
+	public SystemState findMyAddFriendsReq(String userUuid,String mime);
 	
 	/**
 	 * 操作好友申请列表
@@ -36,7 +36,7 @@ public interface UserFriendService {
 	 * @param uuid 
 	 * @return
 	 */
-	public SystemState addMyFriends(String userUuid,String mime,String friendReqUuid,int access, String uuid);
+	public SystemState operaMyFriendReq(String userUuid,String mime,int access, String uuid);
 	
 	/**
 	 * 获取好友列表

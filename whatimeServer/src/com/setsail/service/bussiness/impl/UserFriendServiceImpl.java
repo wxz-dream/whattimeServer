@@ -1,6 +1,7 @@
 package com.setsail.service.bussiness.impl;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class UserFriendServiceImpl implements UserFriendService {
 	private RelationRepository relationRepository;
 	
 	@Override
-	public SystemState addFriend(String userUuid, String mime, String friendUuid, String remark) {
+	public SystemState addFriendReq(String userUuid, String mime, String friendUuid, String remark) {
 		
 		SystemState systemState = null;
 		
@@ -39,6 +40,7 @@ public class UserFriendServiceImpl implements UserFriendService {
 		try{
 			User muser = userRepository.findOne(userUuid);
 			friendReq = new FriendReq();
+			friendReq.setUuid(UUID.randomUUID().toString());
 			friendReq.setUserUuid(userUuid);
 			friendReq.setNickName(muser.getNickName());
 			friendReq.setFriendReqUuid(friendUuid);
@@ -54,17 +56,6 @@ public class UserFriendServiceImpl implements UserFriendService {
 		}
 		systemState = new SystemState(StateEnum.STATE_SUCCESS);
 		return systemState;
-	}
-
-	@Override
-	public SystemState addMyFriends(String userUuid, String mime,
-			String friendReqUuid, int access, String uuid) {
-		if("".equals(uuid)){
-			return  new SystemState(StateEnum.STATE_FAIL);
-		}
-		FriendReq friendReq = friendReqRepository.findOne(uuid);
-		friendReq.setAccess(access);
-		return new SystemState(StateEnum.STATE_SUCCESS);
 	}
 
 	@Override
@@ -85,12 +76,36 @@ public class UserFriendServiceImpl implements UserFriendService {
 		return systemState;
 	}
 
+
 	@Override
-	public SystemState myAddFriends(String userUuid, String mime) {
-		List<FriendReq> list = friendReqRepository.findFriendReqByFriendReqUuidAndAccess(userUuid,Constants.ACCESS_UNTREATED);
+	public SystemState findMyAddFriendsReq(String userUuid, String mime) {
+		List<FriendReq> list = friendReqRepository.findFriendReqByFriendReqUuid(userUuid);
 		SystemState systemState = new SystemState(StateEnum.STATE_SUCCESS);
 		systemState.setResInfo(list);
 		return systemState;
+	}
+
+	@Override
+	public SystemState operaMyFriendReq(String userUuid, String mime,int access, String uuid) {
+		if("".equals(uuid)){
+			return  new SystemState(StateEnum.STATE_FAIL);
+		}
+		FriendReq friendReq = friendReqRepository.findOne(uuid);
+		friendReq.setAccess(access);
+		friendReqRepository.save(friendReq);
+		if(access==Constants.ACCESS_AGREE)
+		{
+			Relation relation = relationRepository.findRelationByUserUuidAndFriendUuid(friendReq.getUserUuid(),friendReq.getFriendReqUuid());
+			if(relation==null)
+			{
+				relation = new Relation();
+				relation.setUuid(UUID.randomUUID().toString());
+				relation.setUserUuid(friendReq.getUserUuid());
+				relation.setFriendUser(userRepository.findOne(friendReq.getFriendReqUuid()));
+				relationRepository.save(relation);
+			}
+		}
+		return new SystemState(StateEnum.STATE_SUCCESS);
 	}
 
 }

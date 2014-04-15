@@ -80,12 +80,12 @@ public class UserShareAlarmServiceImpl implements UserShareAlarmService {
 		
 		if(SstringUtils.isEmpty(scope)) {
 			userShareAlarms = userShareAlarmRepository.
-					findUserShareAlarmByCateIdAndAlarmTimeAfterAndAlarmTimeBeforeOrderByAlarmTimeDesc(cateId, 
+					findUserShareAlarmByCateIdAndAlarmTimeAfterAndAlarmTimeBeforeAndUuidEqualsOwerUuidOrderByAlarmTimeDesc(cateId, 
 							startTime, endTime, pageRequest);
 		}
 		else {
 			userShareAlarms = userShareAlarmRepository.
-					findByScopeAndCateIdAndAlarmTimeAfterAndAlarmTimeBeforeOrderByAlarmTimeDesc(
+					findByScopeAndCateIdAndAlarmTimeAfterAndAlarmTimeBeforeAndUuidEqualsOwerUuidOrderByAlarmTimeDesc(
 							scope, cateId, startTime, endTime, pageRequest);
 		}
 		SystemState systemState = new SystemState(StateEnum.STATE_SUCCESS);

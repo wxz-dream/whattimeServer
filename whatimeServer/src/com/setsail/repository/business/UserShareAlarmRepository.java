@@ -43,7 +43,9 @@ public interface UserShareAlarmRepository extends PagingAndSortingRepository<Use
 	 * @param pr
 	 * @return
 	 */
-	List<UserShareAlarm> findUserShareAlarmByCateIdAndAlarmTimeAfterAndAlarmTimeBeforeOrderByAlarmTimeDesc(
+	@Query("select alarm from UserShareAlarm alarm where alarm.cateId =?1 and alarm.alarmTime > ?2 and alarm.alarmTime <?3 and alarm.uuid =" +
+			" alarm.owerUuid order by alarm.alarmTime desc")
+	List<UserShareAlarm> findUserShareAlarmByCateIdAndAlarmTimeAfterAndAlarmTimeBeforeAndUuidEqualsOwerUuidOrderByAlarmTimeDesc(
 				Integer cateId, Long startTime, Long endTime, Pageable pageable);
 
 	/**
@@ -55,7 +57,9 @@ public interface UserShareAlarmRepository extends PagingAndSortingRepository<Use
 	 * @param pageRequest
 	 * @return
 	 */
-	List<UserShareAlarm> findByScopeAndCateIdAndAlarmTimeAfterAndAlarmTimeBeforeOrderByAlarmTimeDesc(
+	@Query("select alarm from UserShareAlarm alarm where alarm.scope = ?1 and alarm.cateId =?2 and alarm.alarmTime > ?3 and alarm.alarmTime <?4 and alarm.uuid =" +
+			" alarm.owerUuid order by alarm.alarmTime desc")
+	List<UserShareAlarm> findByScopeAndCateIdAndAlarmTimeAfterAndAlarmTimeBeforeAndUuidEqualsOwerUuidOrderByAlarmTimeDesc(
 			String scope, Integer cateId, Long startTime, Long endTime, Pageable pageable);
 	
 	/**
