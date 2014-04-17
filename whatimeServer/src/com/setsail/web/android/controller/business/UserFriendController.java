@@ -113,28 +113,10 @@ public class UserFriendController {
 	 */
 	@RequestMapping(value = "findMyFriends", method = RequestMethod.POST)
 	@ResponseBody
-	public String findMyFriends(String userUuid) {
+	public String findMyFriends(String userUuid, String mime) {
 		logger.info("into UserFriendController.findMyFriends");
 		SystemState systemState = userFriendService.findMyFriends(userUuid);
 		logger.info("out UserFriendController.findMyFriends");
-		return JSON.toJSONString(systemState);
-	}
-
-	/**
-	 * 获取朋友圈提醒集合
-	 * 
-	 * @param userUuid
-	 * @param mime
-	 * @return
-	 */
-	@RequestMapping(value = "myAddFriends", method = RequestMethod.POST)
-	@ResponseBody
-	public String myAddFriends(String userUuid, String mime, long startTime,
-			long endTime, int page) {
-		logger.info("into UserFriendController.myAddFriends");
-		SystemState systemState = userFriendService.findFriendsAlarm(userUuid,
-				mime, startTime, endTime, page);
-		logger.info("out UserFriendController.myAddFriends");
 		return JSON.toJSONString(systemState);
 	}
 
