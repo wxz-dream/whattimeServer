@@ -77,8 +77,11 @@ public class User implements Serializable {
 	@Column(name="USER_NAME", length=50)
 	private String userName;
 
-	@Column(name="USERPHOTO_URI", length=100)
+	@Column(name="USERPHOTO_URI", length=500)
 	private String userphotoUri;
+	
+	@Column(name="object", length=36)
+	private String object;
 
 	public User() {
 	}
@@ -253,6 +256,14 @@ public class User implements Serializable {
 
 	public void setUserphotoUri(String userphotoUri) {
 		this.userphotoUri = userphotoUri;
+	}
+
+	public String getObject() {
+		return object;
+	}
+
+	public void setObject(String object) {
+		this.object = object;
 	}
 
 }
