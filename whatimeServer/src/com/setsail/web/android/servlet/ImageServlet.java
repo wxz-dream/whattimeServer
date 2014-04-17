@@ -1,6 +1,5 @@
 package com.setsail.web.android.servlet;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
@@ -29,7 +28,7 @@ import com.setsail.util.BCSUtil;
 import com.setsail.util.SstringUtils;
 
 @WebServlet(name = "imageServlet", urlPatterns = "/file", loadOnStartup = 2)
-@MultipartConfig(maxFileSize = 10 * 1024 * 1024)
+@MultipartConfig(maxFileSize = 100 * 1024 * 1024)
 public class ImageServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -5363002601681374598L;
@@ -66,11 +65,6 @@ public class ImageServlet extends HttpServlet {
 				persite(fileType, userId.isEmpty() ? apkVersion : userId, parts)
 				));
 		resp.getWriter().close();
-	}
-	
-	private String getTmpFilePath(){
-		new File(getServletContext().getRealPath("/uploadFiles")).mkdir();
-		return getServletContext().getRealPath("/uploadFiles");
 	}
 	
 	/**
@@ -114,7 +108,7 @@ public class ImageServlet extends HttpServlet {
 			Part part = iterator.next();
 			if(part.getContentType() != null){
 				try {
-					return BCSUtil.putObject(part, fileType, object, getTmpFilePath());
+					return BCSUtil.putObject(part, fileType, object);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

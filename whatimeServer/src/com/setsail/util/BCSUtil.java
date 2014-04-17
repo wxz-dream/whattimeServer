@@ -60,7 +60,7 @@ public final class BCSUtil {
 		bcs.deleteObject(bucket, object).getResult();
 	}
 	
-	public static final String putObject(Part part, String ft, String OldObject, String tmpFilePath) throws IOException {
+	public static final String putObject(Part part, String ft, String OldObject) throws IOException {
 		BaiduBCS baiduBCS = getBaiduBCS();
 		String ObjectKey = null;
 		if(FILE_TYPE_IMG.equalsIgnoreCase(ft))
