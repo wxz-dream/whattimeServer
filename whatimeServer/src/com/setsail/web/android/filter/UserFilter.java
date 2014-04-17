@@ -52,7 +52,7 @@ import com.setsail.web.android.annotation.Auth;
  * @author: zhangyajie
  * @version 0.1
  */
-@WebFilter(urlPatterns = "/*")
+@WebFilter(urlPatterns = "/android/*", servletNames = "wtserver")
 public class UserFilter implements Filter {
 
 	// private Logger logger = Logger.getLogger(getClass());
@@ -151,6 +151,7 @@ public class UserFilter implements Filter {
 				}
 			}
 		}
+		urls.add("/file"); //TODO
 		return urls.toArray(noLoginAuthURL);
 	}
 
