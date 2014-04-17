@@ -83,6 +83,7 @@ public class ImageServlet extends HttpServlet {
 			String object = SstringUtils.getNotNull(saveFile2BCS(parts, BCSUtil.FILE_TYPE_IMG, user.getObject()));
 			if(!object.isEmpty()){
 				user.setUserphotoUri(BCSUtil.generateUrl(object));
+				user.setObject(object);
 				userRepository.save(user);
 				return new SystemState(StateEnum.STATE_SUCCESS);
 			}
