@@ -63,10 +63,14 @@ public final class BCSUtil {
 	public static final String putObject(Part part, String ft, String OldObject) throws IOException {
 		BaiduBCS baiduBCS = getBaiduBCS();
 		String ObjectKey = null;
-		if(FILE_TYPE_IMG.equalsIgnoreCase(ft))
+		if(FILE_TYPE_IMG.equalsIgnoreCase(ft)){
 			ObjectKey = TITLE_IMG + UUID.randomUUID().toString();
-		if(FILE_TYPE_APK.equalsIgnoreCase(ft))
+			OldObject = TITLE_IMG + OldObject;
+		}
+		if(FILE_TYPE_APK.equalsIgnoreCase(ft)){
 			ObjectKey = APK + UUID.randomUUID().toString();
+			OldObject = APK + OldObject;
+		}
 		
 		if(ObjectKey != null){
 			ObjectMetadata metadata = new ObjectMetadata();

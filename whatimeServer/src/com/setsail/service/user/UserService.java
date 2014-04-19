@@ -51,4 +51,8 @@ public interface UserService {
 	public abstract SystemState findUserByUuid(String uuid);
 
 	public abstract SystemState findUserByUserName(String userName);
+
+	public abstract User findOne(String userId);
+
+	public abstract void save(User user);
 }

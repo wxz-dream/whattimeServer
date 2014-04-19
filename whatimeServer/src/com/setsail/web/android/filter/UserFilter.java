@@ -24,6 +24,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -55,7 +56,7 @@ import com.setsail.web.android.annotation.Auth;
 @WebFilter(urlPatterns = "/android/*", servletNames = "wtserver")
 public class UserFilter implements Filter {
 
-	// private Logger logger = Logger.getLogger(getClass());
+	private Logger logger = Logger.getLogger(getClass());
 	private String[] noLoginAuthURL = {};
 	private String basePackage = "com.setsail.web.android.controller";
 	private String MIME = "MIME";
@@ -130,7 +131,7 @@ public class UserFilter implements Filter {
 		noLoginAuthURL = getNoLoginURL(basePackage);
 		System.out.println("login filter init success : " + Arrays.toString(noLoginAuthURL));
 		basePackage = null;
-		// logger.info("登陆拦截的链接初始化完毕:" + Arrays.toString(noLoginAuthURL));
+		logger.info("loginFilter init success:" + Arrays.toString(noLoginAuthURL));
 	}
 	
 	private String[] getNoLoginURL(String basePackage){
@@ -151,7 +152,7 @@ public class UserFilter implements Filter {
 				}
 			}
 		}
-		urls.add("/file"); //TODO
+		urls.add("/file"); urls.add("/whatimeServer/file");//TODO
 		return urls.toArray(noLoginAuthURL);
 	}
 
