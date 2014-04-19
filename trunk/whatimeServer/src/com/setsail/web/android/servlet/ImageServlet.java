@@ -83,7 +83,7 @@ public class ImageServlet extends HttpServlet {
 			String object = SstringUtils.getNotNull(saveFile2BCS(parts, BCSUtil.FILE_TYPE_IMG, user.getObject()));
 			if(!object.isEmpty()){
 				user.setUserphotoUri(BCSUtil.generateUrl(object));
-				user.setObject(object);
+				user.setObject(getObject(object));
 				userRepository.save(user);
 				return new SystemState(StateEnum.STATE_SUCCESS);
 			}
@@ -116,6 +116,10 @@ public class ImageServlet extends HttpServlet {
 			}
 		}
 		return null;
+	}
+	
+	private final String getObject(String object){
+		return SstringUtils.substring(object, object.lastIndexOf("/") + 1);
 	}
 
 }

@@ -184,4 +184,14 @@ public class UserServiceImpl implements UserService {
 		return us;
 	}
 
+	@Override
+	public User findOne(String userId) {
+		return userRepository.findOne(userId);
+	}
+
+	@Transactional(readOnly = false)
+	public void save(User user) {
+		userRepository.save(user);
+	}
+
 }

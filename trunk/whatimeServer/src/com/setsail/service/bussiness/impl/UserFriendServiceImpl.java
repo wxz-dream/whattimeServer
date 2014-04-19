@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.setsail.common.Constants;
-import com.setsail.entity.business.UserShareAlarm;
 import com.setsail.entity.response.StateEnum;
 import com.setsail.entity.response.SystemState;
 import com.setsail.entity.user.FriendReq;

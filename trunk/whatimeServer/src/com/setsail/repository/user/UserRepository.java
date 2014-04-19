@@ -8,6 +8,7 @@
 package com.setsail.repository.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.setsail.entity.user.User;
 
@@ -24,5 +25,10 @@ public interface UserRepository extends JpaRepository<User, String>{
 	public User findByEmail(String email);
 	
 	public User findUserNameByEmail(String email);
+
+	@SuppressWarnings("unchecked")
+	@Transactional(readOnly = false)
+	@Override
+	public User save(User user);
 	
 }
