@@ -85,11 +85,13 @@ public class ImageServlet extends HttpServlet {
 				user.setUserphotoUri(BCSUtil.generateUrl(object));
 				user.setObject(getObject(object));
 				userRepository.save(user);
-				return new SystemState(StateEnum.STATE_SUCCESS);
+				SystemState ss = new SystemState(StateEnum.STATE_SUCCESS);
+				ss.setResInfo(user.getUserphotoUri());
+				return ss;
 			}
 		}
 		if(BCSUtil.FILE_TYPE_APK.equalsIgnoreCase(fileType)){
-			String object = SstringUtils.getNotNull(saveFile2BCS(parts, BCSUtil.FILE_TYPE_IMG, null));
+			String object = SstringUtils.getNotNull(saveFile2BCS(parts, BCSUtil.FILE_TYPE_APK, null));
 			if(!object.isEmpty()){
 				ApkVersion av = new ApkVersion();
 				av.setUrl(BCSUtil.generateUrl(object));
@@ -107,7 +109,7 @@ public class ImageServlet extends HttpServlet {
 		Iterator<Part> iterator = parts.iterator(); 
 		while(iterator.hasNext()) {
 			Part part = iterator.next();
-			if(part.getContentType() != null){
+			if(part.getContentType() != null && !part.getContentType().contains("text/plain")){
 				try {
 					return BCSUtil.putObject(part, fileType, object);
 				} catch (IOException e) {
