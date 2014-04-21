@@ -49,10 +49,10 @@ public interface UserShareAlarmRepository extends
 	 * @param pr
 	 * @return
 	 */
-	@Query("select alarm from UserShareAlarm alarm where alarm.cateId =?1 and alarm.alarmTime > ?2 and alarm.alarmTime <?3 and alarm.uuid ="
-			+ " alarm.owerUuid and alarm.share lile '%0%' order by alarm.alarmTime desc")
+	@Query("select alarm from UserShareAlarm alarm where alarm.cateId =?1 and alarm.alarmTime > ?2 and alarm.alarmTime <?3 and alarm.share like ?4 "
+			+ "and alarm.uuid = alarm.owerUuid order by alarm.alarmTime desc")
 	List<UserShareAlarm> findUserShareAlarmByCateIdAndAlarmTimeAfterAndAlarmTimeBeforeAndUuidEqualsOwerUuidOrderByAlarmTimeDesc(
-			Integer cateId, Long startTime, Long endTime, Pageable pageable);
+			Integer cateId, Long startTime, Long endTime, String sr, Pageable pageable);
 
 	/**
 	 * 根据分类，城市，该提醒的开始时间，截止时间，第几页获取提醒。默认一页20个。按提醒时间（AlarmTime）排序。
@@ -64,11 +64,11 @@ public interface UserShareAlarmRepository extends
 	 * @param pageRequest
 	 * @return
 	 */
-	@Query("select alarm from UserShareAlarm alarm where alarm.scope = ?1 and alarm.cateId =?2 and alarm.alarmTime > ?3 and alarm.alarmTime <?4 and alarm.uuid ="
-			+ " alarm.owerUuid and alarm.share lile '%0%' order by alarm.alarmTime desc")
+	@Query("select alarm from UserShareAlarm alarm where alarm.scope = ?1 and alarm.cateId =?2 and alarm.alarmTime > ?3 and alarm.alarmTime <?4 and alarm.share like ?5 "
+			+ "and alarm.uuid = alarm.owerUuid order by alarm.alarmTime desc")
 	List<UserShareAlarm> findByScopeAndCateIdAndAlarmTimeAfterAndAlarmTimeBeforeAndUuidEqualsOwerUuidOrderByAlarmTimeDesc(
 			String scope, Integer cateId, Long startTime, Long endTime,
-			Pageable pageable);
+			String sr, Pageable pageable);
 
 	/**
 	 * 　描述：根据该提醒的开始时间，截止时间，第几页获取某人的提醒列表。默认一页20个。按提醒时间（AlarmTime）排序。
@@ -87,7 +87,7 @@ public interface UserShareAlarmRepository extends
 	 */
 	@Query("select alarm from UserShareAlarm alarm where alarm.userUuid in "
 			+ "(select rel.friendUser.uuid from Relation rel where rel.userUuid = ?1) "
-			+ " and alarm.alarmTime > ?2 and alarm.alarmTime <?3 and alarm.uuid = alarm.owerUuid and alarm.share lile '%1%' order by alarm.alarmTime desc")
+			+ " and alarm.alarmTime > ?2 and alarm.alarmTime <?3 and alarm.share like ?4 and alarm.uuid = alarm.owerUuid order by alarm.alarmTime desc")
 	List<UserShareAlarm> findUserFriendsAlarms(String userUuid, Long startTime,
-			Long endTime, Pageable pageable);
+			Long endTime, String sr, Pageable pageable);
 }

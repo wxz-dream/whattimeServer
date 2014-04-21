@@ -82,11 +82,11 @@ public class UserShareAlarmServiceImpl implements UserShareAlarmService {
 		if (SstringUtils.isEmpty(scope)) {
 			userShareAlarms = userShareAlarmRepository
 					.findUserShareAlarmByCateIdAndAlarmTimeAfterAndAlarmTimeBeforeAndUuidEqualsOwerUuidOrderByAlarmTimeDesc(
-							cateId, startTime, endTime, pageRequest);
+							cateId, startTime, endTime, "%0%", pageRequest);
 		} else {
 			userShareAlarms = userShareAlarmRepository
 					.findByScopeAndCateIdAndAlarmTimeAfterAndAlarmTimeBeforeAndUuidEqualsOwerUuidOrderByAlarmTimeDesc(
-							scope, cateId, startTime, endTime, pageRequest);
+							scope, cateId, startTime, endTime, "%0%", pageRequest);
 		}
 		SystemState systemState = new SystemState(StateEnum.STATE_SUCCESS);
 		systemState.setResInfo(userShareAlarms);
@@ -155,7 +155,7 @@ public class UserShareAlarmServiceImpl implements UserShareAlarmService {
 		List<UserShareAlarm> userShareAlarms;
 
 		userShareAlarms = userShareAlarmRepository
-				.findUserFriendsAlarms(userUuid,startTime, endTime,pageRequest);
+				.findUserFriendsAlarms(userUuid,startTime, endTime, "%1%", pageRequest);
 		systemState.setResInfo(userShareAlarms);
 		return systemState;
 	}
