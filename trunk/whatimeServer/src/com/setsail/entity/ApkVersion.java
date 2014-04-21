@@ -21,6 +21,9 @@ public class ApkVersion {
 	
 	@Column(name = "size")
 	private Long size;
+	
+	@Column(name = "des", nullable=false, length=1000)
+	private String des;
 
 	public String getUuid() {
 		return uuid;
@@ -52,6 +55,14 @@ public class ApkVersion {
 
 	public void setSize(Long size) {
 		this.size = size;
+	}
+
+	public String getDes() {
+		return des;
+	}
+
+	public void setDes(String des) {
+		this.des = des;
 	}
 	
 	
