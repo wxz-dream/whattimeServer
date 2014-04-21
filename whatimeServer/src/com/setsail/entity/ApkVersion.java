@@ -18,6 +18,9 @@ public class ApkVersion {
 	
 	@Column(name = "url", nullable=false, length=1000)
 	private String url;
+	
+	@Column(name = "size")
+	private Long size;
 
 	public String getUuid() {
 		return uuid;
@@ -41,6 +44,14 @@ public class ApkVersion {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public Long getSize() {
+		return size;
+	}
+
+	public void setSize(Long size) {
+		this.size = size;
 	}
 	
 	
