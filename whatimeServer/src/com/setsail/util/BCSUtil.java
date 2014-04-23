@@ -63,18 +63,19 @@ public final class BCSUtil {
 	public static final String putObject(Part part, String ft, String OldObject) throws IOException {
 		BaiduBCS baiduBCS = getBaiduBCS();
 		String ObjectKey = null;
+		ObjectMetadata metadata = new ObjectMetadata();
 		if(FILE_TYPE_IMG.equalsIgnoreCase(ft)){
 			ObjectKey = TITLE_IMG + UUID.randomUUID().toString();
 			OldObject = TITLE_IMG + OldObject;
+			metadata.setContentType(part.getContentType());
 		}
 		if(FILE_TYPE_APK.equalsIgnoreCase(ft)){
-			ObjectKey = APK + UUID.randomUUID().toString();
+			ObjectKey = APK + getFileName(part);
 			OldObject = APK + OldObject;
+			metadata.setContentType("application/vnd.android.package-archive");
 		}
 		
 		if(ObjectKey != null){
-			ObjectMetadata metadata = new ObjectMetadata();
-			metadata.setContentType(part.getContentType());
 			metadata.setContentLength(part.getSize());
 			
 			PutObjectRequest request = new PutObjectRequest(bucket, ObjectKey, part.getInputStream(), metadata);
@@ -93,4 +94,17 @@ public final class BCSUtil {
 		}
 		return null;
 	}
+	
+	/** 
+     * 从Part的Header信息中提取上传文件的文件名 
+     * @param part 
+     * @return  上传文件的文件名，如果如果没有则返回null 
+     */  
+    private static String getFileName(Part part){  
+        //获取header信息中的content-disposition，如果为文件，则可以从其中提取出文件名  
+    	String h = part.getHeader("content-disposition");
+    	String filename = h.substring(h.lastIndexOf("\\") + 1, h.length() - 1);
+    	return SstringUtils.isEmpty(filename) ? UUID.randomUUID().toString() : filename;
+  
+    } 
 }
