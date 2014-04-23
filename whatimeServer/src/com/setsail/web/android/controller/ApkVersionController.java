@@ -43,7 +43,7 @@ public class ApkVersionController {
 	}
 	
 	@Auth
-	@RequestMapping(value = "apk")
+	@RequestMapping(value = "android")
 	public String getApk() {
 		
 		Iterable<ApkVersion> apks = apkVersionRepository.findAll(
