@@ -43,6 +43,23 @@ public class ApkVersionController {
 	}
 	
 	@Auth
+	@RequestMapping(value = "apk")
+	public String getApk() {
+		
+		Iterable<ApkVersion> apks = apkVersionRepository.findAll(
+				new Sort(new Order(Direction.DESC, "version")));
+		
+		Iterator<ApkVersion> its = apks.iterator();
+		ApkVersion apk;
+		if(its.hasNext()){ apk = its.next();
+		
+			return "redirect:" + apk.getUrl();
+		}
+
+		return "";
+	}
+	
+	@Auth
 	@RequestMapping(value = "saveApkVersion", method = RequestMethod.POST)
 	@ResponseBody
 	public String saveApkVersion(ApkVersion apk) {
