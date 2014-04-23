@@ -55,14 +55,9 @@ public class ImageServlet extends HttpServlet {
 			ac = null;
 		}
 		
-		String fileType = req.getParameter("fileType"); //文件类型
-		String userId = SstringUtils.getNotNull(req.getParameter(USER_UUID));
-		String apkVersion = req.getParameter("version");
-		Collection<Part> parts = req.getParts();
-		
 		//保存文件
 		resp.getWriter().write(JSON.toJSONString(
-				persite(fileType, userId.isEmpty() ? apkVersion : userId, parts)
+				persite(req)
 				));
 		resp.getWriter().close();
 	}
@@ -74,13 +69,22 @@ public class ImageServlet extends HttpServlet {
 	 * @param userId 用户主键或客户端版本号
 	 * @param parts
 	 * @return
+	 * @throws ServletException 
+	 * @throws IOException 
+	 * @throws IllegalStateException 
 	 */
-	private SystemState persite(String fileType, String userId, Collection<Part> parts){
+	private SystemState persite(HttpServletRequest req) throws IllegalStateException, IOException, ServletException{
+		String fileType = req.getParameter("fileType"); //文件类型
+		
 		//用户头像
 		if(BCSUtil.FILE_TYPE_IMG.equalsIgnoreCase(fileType)){
+			
+			String userId = SstringUtils.getNotNull(req.getParameter(USER_UUID));
 			User user = userRepository.findOne(userId);
+			
 			if(user == null) return new SystemState(StateEnum.STATE_NOLOGIN);
-			String object = SstringUtils.getNotNull(saveFile2BCS(parts, BCSUtil.FILE_TYPE_IMG, user.getObject()));
+			
+			String object = SstringUtils.getNotNull(saveFile2BCS(req.getParts(), BCSUtil.FILE_TYPE_IMG, user.getObject()));
 			if(!object.isEmpty()){
 				user.setUserphotoUri(BCSUtil.generateUrl(object));
 				user.setObject(getObject(object));
@@ -91,12 +95,18 @@ public class ImageServlet extends HttpServlet {
 			}
 		}
 		if(BCSUtil.FILE_TYPE_APK.equalsIgnoreCase(fileType)){
-			String object = SstringUtils.getNotNull(saveFile2BCS(parts, BCSUtil.FILE_TYPE_APK, null));
+			
+			String apkVersion = req.getParameter("version");
+			String des = req.getParameter("des");
+			String object = SstringUtils.getNotNull(saveFile2BCS(req.getParts(), BCSUtil.FILE_TYPE_APK, null));
+			
 			if(!object.isEmpty()){
 				ApkVersion av = new ApkVersion();
 				av.setUrl(BCSUtil.generateUrl(object));
 				av.setUuid(UUID.randomUUID().toString());
-				av.setVersion(userId);
+				av.setVersion(apkVersion);
+				av.setSize(Long.valueOf(req.getParameter("size")));
+				av.setDes(des);
 				apkVersionRepository.save(av);
 				return new SystemState(StateEnum.STATE_SUCCESS);
 			}

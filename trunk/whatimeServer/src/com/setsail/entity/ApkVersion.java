@@ -13,7 +13,7 @@ public class ApkVersion {
 	@Column(unique=true, nullable=false, length=36)
 	private String uuid;
 	
-	@Column(name = "version", nullable=false, length=20)
+	@Column(name = "version", nullable=false, unique=true, length=20)
 	private String version;
 	
 	@Column(name = "url", nullable=false, length=1000)
@@ -22,7 +22,7 @@ public class ApkVersion {
 	@Column(name = "size")
 	private Long size;
 	
-	@Column(name = "des", nullable=false, length=1000)
+	@Column(name = "des", length=1000)
 	private String des;
 
 	public String getUuid() {
