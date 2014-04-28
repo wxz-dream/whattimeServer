@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.setsail.entity.business.JoinRelation;
 import com.setsail.entity.business.UserShareAlarm;
+import com.setsail.entity.business.UserShareTask;
 import com.setsail.entity.response.StateEnum;
 import com.setsail.entity.response.SystemState;
 import com.setsail.repository.business.JoinRelationRepository;
@@ -33,6 +34,10 @@ public class UserShareAlarmServiceImpl implements UserShareAlarmService {
 	public SystemState alarmShareAddOrUpdate(UserShareAlarm userShare) {
 		userShare.setUptTime((new Date()).getTime());
 		userShare.setSyncTime((new Date()).getTime());
+		for(UserShareTask a:userShare.getTasks())
+		{
+			a.setUserShareAlarm(userShare);
+		}
 		userShare = userShareAlarmRepository.save(userShare);
 		SystemState systemState = new SystemState(StateEnum.STATE_SUCCESS);
 		systemState.setResInfo(userShare);
