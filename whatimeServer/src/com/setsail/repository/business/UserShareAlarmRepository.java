@@ -50,7 +50,7 @@ public interface UserShareAlarmRepository extends
 	 * @return
 	 */
 	@Query("select alarm from UserShareAlarm alarm where alarm.cateId =?1 and alarm.alarmTime > ?2 and alarm.alarmTime <?3 and alarm.share like ?4 "
-			+ "and alarm.uuid = alarm.owerUuid order by alarm.alarmTime desc")
+			+ "and alarm.uuid = alarm.owerUuid order by alarm.alarmTime asc")
 	List<UserShareAlarm> findUserShareAlarmByCateIdAndAlarmTimeAfterAndAlarmTimeBeforeAndUuidEqualsOwerUuidOrderByAlarmTimeDesc(
 			Integer cateId, Long startTime, Long endTime, String sr, Pageable pageable);
 
@@ -65,7 +65,7 @@ public interface UserShareAlarmRepository extends
 	 * @return
 	 */
 	@Query("select alarm from UserShareAlarm alarm where alarm.scope = ?1 and alarm.cateId =?2 and alarm.alarmTime > ?3 and alarm.alarmTime <?4 and alarm.share like ?5 "
-			+ "and alarm.uuid = alarm.owerUuid order by alarm.alarmTime desc")
+			+ "and alarm.uuid = alarm.owerUuid order by alarm.alarmTime asc")
 	List<UserShareAlarm> findByScopeAndCateIdAndAlarmTimeAfterAndAlarmTimeBeforeAndUuidEqualsOwerUuidOrderByAlarmTimeDesc(
 			String scope, Integer cateId, Long startTime, Long endTime,
 			String sr, Pageable pageable);
@@ -87,7 +87,7 @@ public interface UserShareAlarmRepository extends
 	 */
 	@Query("select alarm from UserShareAlarm alarm where alarm.userUuid in "
 			+ "(select rel.friendUser.uuid from Relation rel where rel.userUuid = ?1) "
-			+ " and alarm.alarmTime > ?2 and alarm.alarmTime <?3 and alarm.share like ?4 and alarm.uuid = alarm.owerUuid order by alarm.alarmTime desc")
+			+ " and alarm.alarmTime > ?2 and alarm.alarmTime <?3 and alarm.share like ?4 and alarm.uuid = alarm.owerUuid order by alarm.alarmTime asc")
 	List<UserShareAlarm> findUserFriendsAlarms(String userUuid, Long startTime,
 			Long endTime, String sr, Pageable pageable);
 }
