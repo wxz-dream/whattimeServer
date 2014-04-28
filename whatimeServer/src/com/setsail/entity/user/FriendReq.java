@@ -38,7 +38,7 @@ public class FriendReq implements Serializable {
 	@Column(name="USER_UUID", length=100)
 	private String userUuid;
 
-	@Column(name="USERPHOTO_URI", length=100)
+	@Column(name="USERPHOTO_URI", length=500)
 	private String userphotoUri;
 
 	public FriendReq() {
