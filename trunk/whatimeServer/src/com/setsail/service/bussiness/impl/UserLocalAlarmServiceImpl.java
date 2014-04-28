@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.setsail.entity.business.UserLocalAlarm;
+import com.setsail.entity.business.UserLocalTask;
 import com.setsail.entity.response.StateEnum;
 import com.setsail.entity.response.SystemState;
 import com.setsail.repository.business.UserLocalAlarmRepository;
@@ -25,6 +26,10 @@ public class UserLocalAlarmServiceImpl implements UserLocalAlarmService {
 	public SystemState alarmLocalAddOrUpdate(UserLocalAlarm userLocal) {
 		userLocal.setUptTime((new Date()).getTime());
 		userLocal.setSyncTime((new Date()).getTime());
+		for(UserLocalTask a:userLocal.getTasks())
+		{
+			a.setUserLocalAlarm(userLocal);
+		}
 		userLocal = userLocalAlarmRepository.save(userLocal);
 		SystemState systemState = new SystemState(StateEnum.STATE_SUCCESS);
 		systemState.setResInfo(userLocal);
